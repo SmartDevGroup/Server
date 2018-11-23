@@ -1,0 +1,94 @@
+body, html {
+  height: 100%;
+}
+.bg {
+  /* The image used */
+  background-image: url("/images/bedroom_bg.jpg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg-main {
+  /* The image used */
+  background-image: url("/images/main_bg.jpg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg-k {
+  /* The image used */
+  background-image: url("/images/kitchen_bg.jpg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg-b {
+  /* The image used */
+  background-image: url("/images/bathroom_bg.png");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg-l {
+  /* The image used */
+  background-image: url("/images/livingroom_bg.jpg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bg-s {
+  /* The image used */
+  background-image: url("/images/settings_bg.jpg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.semi {
+    opacity: 0.8; /* Полупрозрачность элемента */
+   }
+.semibutt {
+opacity: 0.6; /* Полупрозрачность элемента */
+}
+.semitext {
+opacity: 0.6; /* Полупрозрачность элемента */
+}
+.semitextset {
+opacity: 1; /* Полупрозрачность элемента */
+}
+.nosemi {
+    opacity: 1; /* Полупрозрачность элемента */
+   }
