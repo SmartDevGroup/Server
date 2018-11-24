@@ -32,12 +32,12 @@ if($num_rows == 1 || $num_rows > 1)
     if($status_data_bedroom['bedroom_socket_5'] == 1){$bed_stat_5 = "Enable";}else {$bed_stat_5 = "Disable";}
     if($status_data_bedroom['bedroom_socket_6'] == 1){$bed_stat_6 = "Enable";}else {$bed_stat_6 = "Disable";}
 
-    $name_b_1 = (string)$status_data_kitchen['name_sock_1'];
-    $name_b_2 = (string)$status_data_kitchen['name_sock_2'];
-    $name_b_3 = (string)$status_data_kitchen['name_sock_3'];
-    $name_b_4 = (string)$status_data_kitchen['name_sock_4'];
-    $name_b_5 = (string)$status_data_kitchen['name_sock_5'];
-    $name_b_6 = (string)$status_data_kitchen['name_sock_6'];
+    $name_b_1 = (string)$status_data_bedroom['name_sock_1'];
+    $name_b_2 = (string)$status_data_bedroom['name_sock_2'];
+    $name_b_3 = (string)$status_data_bedroom['name_sock_3'];
+    $name_b_4 = (string)$status_data_bedroom['name_sock_4'];
+    $name_b_5 = (string)$status_data_bedroom['name_sock_5'];
+    $name_b_6 = (string)$status_data_bedroom['name_sock_6'];
 
     //bedroom
     //kitchen
