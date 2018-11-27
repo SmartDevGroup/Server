@@ -288,7 +288,7 @@ function add_brain()
   success: function(message){
     $('#message').fadeIn();
     $('#message').html(message);
-    setTimeout(close, 2000);
+    setTimeout(close, 10000);
     document.getElementById("save_but").disabled = true;
     }
   });

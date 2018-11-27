@@ -415,7 +415,7 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
             document.getElementById("save_but").disabled = false;
             $('#message').fadeIn();
             $('#message').html("<h3 class='on text-success'>Serial lenght - correct</h3>");
-            setTimeout(close, 1500);
+            setTimeout(close, 10000);
           }
           else {
             $('#message').fadeIn();

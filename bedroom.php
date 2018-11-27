@@ -102,14 +102,15 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
                   </div>
                 </nav>
                 <div class="row ">
-                  <div class="col-lg-8 col-md-12 col-sm-8 text-center table-responsive">
+                  <div class="col-lg-8 col-md-12 col-sm-8 text-center ">
                     <table class="table table-light text-center table-hover">
                         <thead>
                           <tr>
                             <th scope="col">#</th>
                             <th scope="col"><i class="fas fa-thermometer-empty"></i>  C<sup>o</sup></th>
+                            <th scope="col"><i class="fas fa-wifi"></i></i> Connection</th>
                             <th scope="col"><i class="fas fa-plug"></i> Status</th>
-                            <th scope="col" class="w-25"> Name</th>
+                            <th scope="col"><i class="fas fa-sticky-note"></i> Name</th>
                             <th scope="col"><i class="fas fa-power-off"></i> ON/OFF</th>
                           </tr>
                         </thead>
@@ -119,9 +120,10 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
                             echo "<tr>
                               <th scope='row'>$i</th>
                               <td><h3 class='text-primary semitext' id='b_temp_$i'></h3></td>
+                              <td><div class='semitext' id='b_conn_$i'></div></td>
                               <td><div class='semitext' id='b_stan_$i'></div></td>
                               <td><h4 id='name_bedroom_$i'></h4></td>
-                              <td><div class='btn btn-block semibutt'><img src='images/socket.png'> <input type='checkbox' data-width='60%' class='text-center' data-toggle='toggle' data-on='ON' data-off='Off ' data-onstyle='success' data-offstyle='danger' name='status' id='bedroom_socket_$i' value='0'></div></td>
+                              <td><div class='btn btn-block semibutt'><img src='images/socket.png'> <input type='checkbox' data-width='80%' class='text-center' data-toggle='toggle' data-on='ON' data-off='Off ' data-onstyle='success' data-offstyle='danger' name='status' id='bedroom_socket_$i' value='0'></div></td>
                             </tr>";
                           } ?>
                         </tr>
