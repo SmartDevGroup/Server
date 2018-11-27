@@ -9,6 +9,7 @@ function bedroom_save()
   array.id_4 = $('#id_b_4').val();
   array.id_5 = $('#id_b_5').val();
   array.id_6 = $('#id_b_6').val();
+
   array.name_b_1 = $('#name_b_1').val();
   array.name_b_2 = $('#name_b_2').val();
   array.name_b_3 = $('#name_b_3').val();
@@ -89,6 +90,13 @@ function kitchen_save()
   array.id_5 = $('#id_k_5').val();
   array.id_6 = $('#id_k_6').val();
 
+  array.name_k_1 = $('#name_k_1').val();
+  array.name_k_2 = $('#name_k_2').val();
+  array.name_k_3 = $('#name_k_3').val();
+  array.name_k_4 = $('#name_k_4').val();
+  array.name_k_5 = $('#name_k_5').val();
+  array.name_k_6 = $('#name_k_6').val();
+
   if(array.id_1 == ""){array.id_1 = 0;}
   if(array.id_2 == ""){array.id_2 = 0;}
   if(array.id_3 == ""){array.id_3 = 0;}
@@ -120,6 +128,12 @@ function id_kitchen()
     $('#id_k_4').val(data.id_k_4);
     $('#id_k_5').val(data.id_k_5);
     $('#id_k_6').val(data.id_k_6);
+    $('#name_k_1').val(data.name_k_1);
+    $('#name_k_2').val(data.name_k_2);
+    $('#name_k_3').val(data.name_k_3);
+    $('#name_k_4').val(data.name_k_4);
+    $('#name_k_5').val(data.name_k_5);
+    $('#name_k_6').val(data.name_k_6);
     status_kitchen();
   }
   });
@@ -153,6 +167,13 @@ function bathroom_save()
   array.id_5 = $('#id_ba_5').val();
   array.id_6 = $('#id_ba_6').val();
 
+  array.name_ba_1 = $('#name_ba_1').val();
+  array.name_ba_2 = $('#name_ba_2').val();
+  array.name_ba_3 = $('#name_ba_3').val();
+  array.name_ba_4 = $('#name_ba_4').val();
+  array.name_ba_5 = $('#name_ba_5').val();
+  array.name_ba_6 = $('#name_ba_6').val();
+
   if(array.id_1 == ""){array.id_1 = 0;}
   if(array.id_2 == ""){array.id_2 = 0;}
   if(array.id_3 == ""){array.id_3 = 0;}
@@ -184,6 +205,12 @@ function id_bathroom()
     $('#id_ba_4').val(data.id_ba_4);
     $('#id_ba_5').val(data.id_ba_5);
     $('#id_ba_6').val(data.id_ba_6);
+    $('#name_ba_1').val(data.name_ba_1);
+    $('#name_ba_2').val(data.name_ba_2);
+    $('#name_ba_3').val(data.name_ba_3);
+    $('#name_ba_4').val(data.name_ba_4);
+    $('#name_ba_5').val(data.name_ba_5);
+    $('#name_ba_6').val(data.name_ba_6);
     status_bathroom();
   }
   });
@@ -217,6 +244,13 @@ function living_save()
   array.id_5 = $('#id_l_5').val();
   array.id_6 = $('#id_l_6').val();
 
+  array.name_l_1 = $('#name_l_1').val();
+  array.name_l_2 = $('#name_l_2').val();
+  array.name_l_3 = $('#name_l_3').val();
+  array.name_l_4 = $('#name_l_4').val();
+  array.name_l_5 = $('#name_l_5').val();
+  array.name_l_6 = $('#name_l_6').val();
+
   if(array.id_1 == ""){array.id_1 = 0;}
   if(array.id_2 == ""){array.id_2 = 0;}
   if(array.id_3 == ""){array.id_3 = 0;}
@@ -243,11 +277,17 @@ function id_living()
   success: function(json){
     var data = JSON.parse(json);
     $('#id_l_1').val(data.id_l_1);
-    $('#id_l_2').val("12");
+    $('#id_l_2').val(data.id_l_2);
     $('#id_l_3').val(data.id_l_3);
     $('#id_l_4').val(data.id_l_4);
     $('#id_l_5').val(data.id_l_5);
     $('#id_l_6').val(data.id_l_6);
+    $('#name_l_1').val(data.name_l_1);
+    $('#name_l_2').val(data.name_l_2);
+    $('#name_l_3').val(data.name_l_3);
+    $('#name_l_4').val(data.name_l_4);
+    $('#name_l_5').val(data.name_l_5);
+    $('#name_l_6').val(data.name_l_6);
   }
   });
   status_living();

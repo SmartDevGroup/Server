@@ -222,7 +222,8 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
                               <thead>
                                 <tr>
                                   <th scope="col">#</th>
-                                  <th scope="col">ID</th>
+                                  <th scope="col" class="w-25">ID</th>
+                                  <th scope="col" class="w-25">Name</th>
                                   <th scope="col">Status</th>
                                 </tr>
                               </thead>
@@ -230,8 +231,9 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
                                 <?php for ($i=1; $i <= 6 ; $i++) {
                                   echo "<tr>
                                     <th scope='row'>$i</th>
-                                    <td><input type='text' class='form-control text-center semibutt' id='id_k_$i' placeholder='ID'></td>
-                                    <td><div class='semitext' id='kit_stat_$i'> </div></td>
+                                    <td><input type='text' class='form-control text-center' id='id_k_$i' placeholder='ID'></td>
+                                    <td><input type='text' class='form-control text-center ' id='name_k_$i' placeholder='Name'></td>
+                                    <td><div class='' id='kit_stat_$i'> </div></td>
                                   </tr>";
                                 } ?>
                               </tbody>
@@ -284,7 +286,8 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
                               <thead>
                                 <tr>
                                   <th scope="col">#</th>
-                                  <th scope="col">ID</th>
+                                  <th scope="col" class="w-25">ID</th>
+                                  <th scope="col" class="w-25">Name</th>
                                   <th scope="col">Status</th>
                                 </tr>
                               </thead>
@@ -293,6 +296,7 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
                                   echo "<tr>
                                     <th scope='row'>$i</th>
                                     <td><input type='text' class='form-control text-center ' id='id_ba_$i' placeholder='ID'></td>
+                                    <td><input type='text' class='form-control text-center ' id='name_ba_$i' placeholder='Name'></td>
                                     <td><div class='' id='ba_stat_$i'> </div></td>
                                   </tr>";
                                 } ?>
@@ -347,6 +351,8 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
                                 <tr>
                                   <th scope="col">#</th>
                                   <th scope="col">ID</th>
+                                  <th scope="col" class="w-25">ID</th>
+                                  <th scope="col" class="w-25">Name</th>
                                   <th scope="col">Status</th>
                                 </tr>
                               </thead>
@@ -355,6 +361,7 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
                                   echo "<tr>
                                     <th scope='row'>$i</th>
                                     <td><input type='text' class='form-control text-center ' id='id_l_$i' placeholder='ID'></td>
+                                    <td><input type='text' class='form-control text-center ' id='name_l_$i' placeholder='Name'></td>
                                     <td><div class='' id='l_stat_$i'> </div></td>
                                   </tr>";
                                 } ?>
