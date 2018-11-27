@@ -1,6 +1,8 @@
 <?php
 session_start();
 $get_key = $_SESSION['api'];
+$link=mysqli_connect("localhost", "root", "", "server");
+mysqli_query($link, "UPDATE kitchen SET l_k = l_k + 1 WHERE api_key = '$get_key'");
 if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
   include 'status/kitchen_sum.php';
 ?>
@@ -329,7 +331,7 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
       chart.render();
     }
 
-    var updateInterval = 2000;
+    var updateInterval = 4000;
     // initial value
 
     date = new Date;

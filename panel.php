@@ -1,6 +1,7 @@
 <?php
 session_start();
 $get_key = $_SESSION['api'];
+SetCookie("api",$get_key,time()+3600);
 if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
 ?>
 

@@ -163,6 +163,49 @@ function show()
   });
 }
 
+function pol()
+{
+  var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      if (this.status === 200) {
+        try {
+          var data = JSON.parse(this.responseText);
+          $('#ba_temp_1').text(data.bathroom_socket_1);
+          $('#ba_temp_2').text(data.bathroom_socket_2);
+          $('#ba_temp_3').text(data.bathroom_socket_3);
+          $('#ba_temp_4').text(data.bathroom_socket_4);
+          $('#ba_temp_5').text(data.bathroom_socket_5);
+          $('#ba_temp_6').text(data.bathroom_socket_6);
+          $('#ba_stan_1').html(data.ba_s_1);
+          $('#ba_stan_2').html(data.ba_s_2);
+          $('#ba_stan_3').html(data.ba_s_3);
+          $('#ba_stan_4').html(data.ba_s_4);
+          $('#ba_stan_5').html(data.ba_s_5);
+          $('#ba_stan_6').html(data.ba_s_6);
+          $('#ba_stan_l').html(data.ba_l);
+
+          $('#ba_conn_1').html(data.c_s_1);
+          $('#ba_conn_2').html(data.c_s_2);
+          $('#ba_conn_3').html(data.c_s_3);
+          $('#ba_conn_4').html(data.c_s_4);
+          $('#ba_conn_5').html(data.c_s_5);
+          $('#ba_conn_6').html(data.c_s_6);
+        } catch{
+          pol();
+          return;
+        }
+        pol();
+      }
+      else {
+        pol();
+      }
+    }
+};
+xmlhttp.open("GET", 'status/bathroom_status.php', true);
+xmlhttp.send();
+}
+
 function name()
 {
   $.ajax({
@@ -170,20 +213,21 @@ function name()
   cache: false,
   success: function(json_n){
     var data = JSON.parse(json_n);
-    $('#name_bathroom_1').text(data.b_s_1);
-    $('#name_bathroom_2').text(data.b_s_2);
-    $('#name_bathroom_3').text(data.b_s_3);
-    $('#name_bathroom_4').text(data.b_s_4);
-    $('#name_bathroom_5').text(data.b_s_5);
-    $('#name_bathroom_6').text(data.b_s_6);
+    $('#name_bathroom_1').text(data.ba_s_1);
+    $('#name_bathroom_2').text(data.ba_s_2);
+    $('#name_bathroom_3').text(data.ba_s_3);
+    $('#name_bathroom_4').text(data.ba_s_4);
+    $('#name_bathroom_5').text(data.ba_s_5);
+    $('#name_bathroom_6').text(data.ba_s_6);
   }
   });
 }
 
 $(document).ready(function(){
-    show();
+    //show();
+    pol();
     name();
-    setInterval('show()',1000);
+    //setInterval('show()',1000);
 });
 
 var scroll = 0;

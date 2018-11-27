@@ -163,6 +163,49 @@ function show()
   });
 }
 
+function pol()
+{
+  var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      if (this.status === 200) {
+        try {
+          var data = JSON.parse(this.responseText);
+          $('#b_temp_1').text(data.bedroom_socket_1);
+          $('#b_temp_2').text(data.bedroom_socket_2);
+          $('#b_temp_3').text(data.bedroom_socket_3);
+          $('#b_temp_4').text(data.bedroom_socket_4);
+          $('#b_temp_5').text(data.bedroom_socket_5);
+          $('#b_temp_6').text(data.bedroom_socket_6);
+          $('#b_stan_1').html(data.b_s_1);
+          $('#b_stan_2').html(data.b_s_2);
+          $('#b_stan_3').html(data.b_s_3);
+          $('#b_stan_4').html(data.b_s_4);
+          $('#b_stan_5').html(data.b_s_5);
+          $('#b_stan_6').html(data.b_s_6);
+          $('#b_stan_l').html(data.b_l);
+
+          $('#b_conn_1').html(data.c_s_1);
+          $('#b_conn_2').html(data.c_s_2);
+          $('#b_conn_3').html(data.c_s_3);
+          $('#b_conn_4').html(data.c_s_4);
+          $('#b_conn_5').html(data.c_s_5);
+          $('#b_conn_6').html(data.c_s_6);
+        } catch{
+          pol();
+          return;
+        }
+        pol();
+      }
+      else {
+        pol();
+      }
+    }
+};
+xmlhttp.open("GET", 'status/bedroom_status.php', true);
+xmlhttp.send();
+}
+
 function name()
 {
   $.ajax({
@@ -181,9 +224,10 @@ function name()
 }
 
 $(document).ready(function(){
-    show();
+    //show();
     name();
-    setInterval('show()',1000);
+    pol();
+    //setInterval('show()',1000);
 });
 
 var scroll = 0;
