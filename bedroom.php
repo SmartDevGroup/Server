@@ -1,8 +1,8 @@
 <?php
 session_start();
 $get_key = $_SESSION['api'];
-$link=mysqli_connect("localhost", "root", "", "server");
-mysqli_query($link, "UPDATE bedroom SET l_b = l_b + 1 WHERE api_key = '$get_key'");
+//$link=mysqli_connect("localhost", "root", "", "server");
+//mysqli_query($link, "UPDATE bedroom SET l_b = l_b + 1 WHERE api_key = '$get_key'");
 if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
   include 'status/bedroom_sum.php';
 ?>
@@ -332,7 +332,7 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
       chart.render();
     }
 
-    var updateInterval = 4000;
+    var updateInterval = 2000;
     // initial value
 
     date = new Date;

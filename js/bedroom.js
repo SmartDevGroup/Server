@@ -162,7 +162,7 @@ function show()
   }
   });
 }
-
+/*
 function pol()
 {
   var xmlhttp = new XMLHttpRequest();
@@ -205,7 +205,7 @@ xmlhttp.onreadystatechange = function() {
 xmlhttp.open("GET", 'status/bedroom_status.php', true);
 xmlhttp.send();
 }
-
+*/
 function name()
 {
   $.ajax({
@@ -224,10 +224,10 @@ function name()
 }
 
 $(document).ready(function(){
-    //show();
+    show();
     name();
-    pol();
-    //setInterval('show()',1000);
+    //pol();
+    setInterval('show()',1000);
 });
 
 var scroll = 0;

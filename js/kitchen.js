@@ -162,7 +162,7 @@ function show()
   }
   });
 }
-
+/*
 function pol()
 {
   var xmlhttp = new XMLHttpRequest();
@@ -206,12 +206,12 @@ xmlhttp.onreadystatechange = function() {
 xmlhttp.open("GET", 'status/kitchen_status.php', true);
 xmlhttp.send();
 }
-
+*/
 $(document).ready(function(){
-    //show();
-    pol();
+    show();
+    //pol();
     name();
-    //setInterval('show()',1000);
+    setInterval('show()',1000);
 });
 
 function name()
