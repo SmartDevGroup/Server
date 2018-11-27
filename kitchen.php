@@ -123,7 +123,7 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
                               <td><div class='semitext' id='k_conn_$i'></div></td>
                               <td><div class='semitext' id='k_stan_$i'></div></td>
                               <td><h4 id='name_kitchen_$i'></h4></td>
-                              <td><div class='btn btn-block semibutt'><img src='images/socket.png'> <input type='checkbox' data-width='60%' class='text-center' data-toggle='toggle' data-on='ON' data-off='Off ' data-onstyle='success' data-offstyle='danger' name='status' id='kitchen_socket_$i' value='0'></div></td>
+                              <td><div class='btn btn-block semibutt'><img src='images/socket.png'> <input type='checkbox' data-width='90%' class='text-center' data-toggle='toggle' data-on='ON' data-off='Off ' data-onstyle='success' data-offstyle='danger' name='status' id='kitchen_socket_$i' value='0'></div></td>
                             </tr>";
                           } ?>
                           </tr>

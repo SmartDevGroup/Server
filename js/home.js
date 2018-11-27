@@ -152,6 +152,12 @@ function show()
     $('#h_stan_6').html(data.h_s_6);
     $('#h_stan_l').html(data.h_l);
 
+    $('#h_conn_1').html(data.c_s_1);
+    $('#h_conn_2').html(data.c_s_2);
+    $('#h_conn_3').html(data.c_s_3);
+    $('#h_conn_4').html(data.c_s_4);
+    $('#h_conn_5').html(data.c_s_5);
+    $('#h_conn_6').html(data.c_s_6);
   }
   });
 }

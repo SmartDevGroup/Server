@@ -112,7 +112,7 @@ else {
 
 $arr = $arrayName = array("bedroom_socket_1" => $data['b_temp_sock_1'], "bedroom_socket_2" => $data['b_temp_sock_2'],"bedroom_socket_3" => $data['b_temp_sock_3'], "bedroom_socket_4" => $data['b_temp_sock_4'],"bedroom_socket_5" => $data['b_temp_sock_5'], "bedroom_socket_6" => $data['b_temp_sock_6'],
 "b_s_1" => $b_stan_1, "b_s_2" => $b_stan_2, "b_s_3" => $b_stan_3, "b_s_4" => $b_stan_4, "b_s_5" => $b_stan_5, "b_s_6" => $b_stan_6, "b_l" => $b_light, "c_s_1" => $conn_s_1, "c_s_2" => $conn_s_2, "c_s_3" => $conn_s_3,
-"c_s_4" => $conn_s_4, "c_s_5" => $conn_s_5, "c_s_6" => $conn_s_6,);
+"c_s_4" => $conn_s_4, "c_s_5" => $conn_s_5, "c_s_6" => $conn_s_6);
 
 $json = json_encode($arr);
 echo $json;
