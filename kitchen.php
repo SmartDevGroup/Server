@@ -108,8 +108,9 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
                           <tr>
                             <th scope="col">#</th>
                             <th scope="col"><i class="fas fa-thermometer-empty"></i>  C<sup>o</sup></th>
+                            <th scope="col"><i class="fas fa-wifi"></i></i> Connection</th>
                             <th scope="col"><i class="fas fa-plug"></i> Status</th>
-                            <th scope="col" class="w-25"> Name</th>
+                            <th scope="col"><i class="fas fa-sticky-note"></i> Name</th>
                             <th scope="col"><i class="fas fa-power-off"></i> ON/OFF</th>
                           </tr>
                         </thead>
@@ -119,17 +120,13 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
                             echo "<tr>
                               <th scope='row'>$i</th>
                               <td><h3 class='text-primary' id='k_temp_$i'></h3></td>
+                              <td><div class='semitext' id='k_conn_$i'></div></td>
                               <td><div class='semitext' id='k_stan_$i'></div></td>
                               <td><h4 id='name_kitchen_$i'></h4></td>
                               <td><div class='btn btn-block semibutt'><img src='images/socket.png'> <input type='checkbox' data-width='60%' class='text-center' data-toggle='toggle' data-on='ON' data-off='Off ' data-onstyle='success' data-offstyle='danger' name='status' id='kitchen_socket_$i' value='0'></div></td>
                             </tr>";
                           } ?>
-                          <th scope='row'><i class="fas fa-lightbulb"></i></th>
-                          <td><h3 class='text-primary'>-</h3></td>
-                          <td><div class="semitext" id='k_stan_l'></td>
-                          <td></td>
-                          <td><div class="btn btn-block semibutt"><img src='images/light.png'><input type='checkbox' data-width='60%' class='text-center' data-toggle='toggle' data-on='ON' data-off='Off ' data-onstyle='success' data-offstyle='danger' name='status' id='kitchen_light' value='0'></div></td>
-                        </tr>
+                          </tr>
                         </tbody>
                       </table>
                   </div>
@@ -146,8 +143,12 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
                         <br>
                         <br>
                         <div class="card text-center">
-                          <h5 class="card-title">Light</h5>
-                          <div class="card-body">
+                          <h5 class="card-title text-center"><img src='images/light.png'> Light</h5>
+                          <div class="card-body text-center">
+                          <h5 class="card-title"><div class="semitext" id='k_stan_l'></div></h5>
+                          <div class="btn btn-block semibutt text-center"><input type='checkbox' data-width='60%' class='text-center' data-toggle='toggle' data-on='ON' data-off='Off ' data-onstyle='success' data-offstyle='danger' name='status' id='kitchen_light' value='0'>
+                          </div>
+                          <br>
                           <div class="slidecontainer"><input type="range" min="1" max="100" class="slider" id="dimer" style="width: 80%;"></div>
                           <p class="card-text" id="value_scroll"></p>
                           </div>
