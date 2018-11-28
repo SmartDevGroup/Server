@@ -21,5 +21,5 @@ $update_bedroom = mysqli_query($link, "UPDATE bedroom SET b_temp_sock_1 = $b_tem
   $data = mysqli_fetch_assoc($id);
   $id_bd = $data['count'] + 1;
 
-  $insert_temp = mysqli_query($link, "INSERT INTO temp (id, api_key, date, b_sock_1, b_sock_2, b_sock_3, b_sock_4, b_sock_5, b_sock_6) VALUES ($id_bd, $get_key, NOW(), $b_temp_1, $b_temp_2, $b_temp_3, $b_temp_4, $b_temp_5, $b_temp_6)");
+  $insert_temp = mysqli_query($link, "INSERT INTO temp (id, api_key, date, b_sock_1, b_sock_2, b_sock_3, b_sock_4, b_sock_5, b_sock_6) VALUES ($id_bd, $get_key, NOW(), $bedroom[b_temp_1], $bedroom[b_temp_2], $bedroom[b_temp_3], $bedroom[b_temp_4], $bedroom[b_temp_5], $bedroom[b_temp_6])");
 ?>
