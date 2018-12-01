@@ -332,7 +332,7 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
       chart.render();
     }
 
-    var updateInterval = 2000;
+    var updateInterval = 4000;
     // initial value
 
     date = new Date;

@@ -1,7 +1,9 @@
 <?php
 session_start();
 $get_key = $_SESSION['api'];
+
 if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
+
 ?>
 
 <!DOCTYPE html>
@@ -9,29 +11,41 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
   <head>
     <meta charset="utf-8">
     <title>Sweet Home</title>
+
     <link rel="shortcut icon" type="image/x-icon" href="http://individual.icons-land.com/IconsPreview/GISGPSMAP/PNG/Places/256x256/House1.png" />
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-    <link rel="stylesheet" href="css/sidebar.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 
-  </head>
+
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/loader.css">
+    <link rel="stylesheet" href="css/bg.css">
+    <link rel="stylesheet" href="css/slider.css">
+    </head>
+
   <body>
+      <div class="box" id="cat">
+        <div class="cat">
+          <div class="cat__body"></div>
+          <div class="cat__body"></div>
+          <div class="cat__tail"></div>
+          <div class="cat__head"></div>
+        </div>
+      </div>
 
-
-      <div class="container-fluid">
+      <div class="container-fluid" style="display:none;" id="myDiv">
         <div class="row">
-          <div class="col-12">
+          <div class="col-12 bg-prof">
+            <div class="wrapper semi">
 
-            <div class="wrapper">
-
-              <nav id="sidebar">
+              <nav id="sidebar" class="active">
                 <div class="sidebar-header">
                   <h3 class=" text-center"> Smart Home </h3>
                 </div>
@@ -44,7 +58,7 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
                       <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle text-center"><i class="fas fa-home"></i> Home</a>
                         <ul class="collapse list-unstyled" id="homeSubmenu">
                           <li>
-                              <a href="bedroom.php"><i class="fas fa-bed"></i> Bedroom</a>
+                              <a href="#"><i class="fas fa-bed"></i> Bedroom</a>
                           </li>
                           <li>
                               <a href="kitchen.php"><i class="fas fa-utensils"></i>  Kitchen</a>
@@ -58,8 +72,7 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
                       </ul>
                   </li>
                   <li>
-                      <a class="text-center" href="#"><i class="fas fa-user"></i> Profile</a>
-                      <a class="text-center" href="settings.php"><i class="fas fa-cog"></i> Settings</a>
+                    <a class="text-center" href="settings.php"><i class="fas fa-cog"></i> Settings</a>
                   </li>
                 </ul>
                 <ul class="list-unstyled CTAs">
@@ -73,41 +86,43 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
               </nav>
 
               <div id="content">
-                <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                  <div class="container-fluid">
+                <nav class="navbar navbar-transparent">
+                  <div class="container-fluid ">
 
-                      <button type="button" id="sidebarCollapse" class="navbar-btn">
+                      <button type="button" id="sidebarCollapse" class="navbar-btn active">
                           <span></span>
                           <span></span>
                           <span></span>
                       </button>
 
                       <div class="col text-center">
-                        <h1 class="bg-white text-info"id="date_time"> </h1>
-                        <h2 class="text-primary">Profile</h2>
+                        <h1 class=" "id="date_time"> </h1>
+                        <h2 class=""><i class="fas fa-chart-line"></i> Statistics</h2>
                       </div>
-
                   </div>
                 </nav>
-                <div class="row">
-                  <div class="col">
-
+                <div class="row ">
+                  <div class="col-lg-12 col-md-12 col-sm-12">
+                    <button class="btn btn-outline-primary text-center" type="button" style="width: 80%;"  data-toggle="collapse" data-target="#chart" aria-expanded="false" aria-controls="chart" onclick="rend();">Show chart</button>
+                  </div>
+                  <div class="col-lg-12 col-md-12 col-sm-12 text-center">
+                    <br>
+                    <div class="collapse" id="chart">
+                      <div class="card text-dark bg-light">
+                        <div class="card-body">
+                          <h5 class="card-title text-center ">Real Time Temperature (C°)</h5>
+                          <div id="chartContainer" style=" height: 480px; weight:100%;"></div>
+                          <button class="btn btn-outline-primary" type="button" style="width: 20%;" onclick="close_colapse()">Close</button>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-
             </div>
-
           </div>
         </div>
       </div>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <!-- Popper.JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-    <!-- Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -115,7 +130,20 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
                 $('#sidebar').toggleClass('active');
                 $(this).toggleClass('active');
             });
+            myFunction();
+            //alert(window.screen.availHeight);
+            //alert(window.screen.availWidth);
+            date_time('date_time');
         });
+
+        function myFunction() {
+            setTimeout(function() { showPage(); }, 2000);
+        }
+
+        function showPage() {
+          document.getElementById("cat").style.display = 'none';
+          document.getElementById("myDiv").style.display = 'block';
+        }
 
         function date_time(id)
         {
@@ -146,7 +174,40 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
                 setTimeout('date_time("'+id+'");','1000');
                 return true;
         }
-      </script>
-    <script type="text/javascript">window.onload = date_time('date_time');</script>
+    </script>
+    <script>
+    function rend()
+    {
+      $.ajax({
+      url: 'chart/chart.php',
+      cache: false,
+      success: function(json){
+        var data = JSON.parse(json);
+        var chart = new CanvasJS.Chart("chartContainer", {
+          zoomEnabled: true,
+        	animationEnabled: true,
+        	title:{
+        		text: "Daily Temperature in Bedroom"
+        	},
+        	axisY: {
+        		title: "Average Temp",
+        		suffix: "C"
+        	},
+        	data: [{
+        		type: "spline",
+        		markerSize: 5,
+        		xValueFormatString: "YYYY-MM-DD hh:mm:ss TT",
+        		yValueFormatString: "#,##0.## C",
+        		xValueType: "dateTime",
+        		dataPoints: data
+        	}]
+        });
+        chart.render();
+      }
+      });
+    }
+    </script>
+
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
   </body>
 </html>
