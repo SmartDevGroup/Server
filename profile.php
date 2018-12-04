@@ -102,21 +102,38 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
                   </div>
                 </nav>
                 <div class="row ">
-                  <div class="col-lg-12 col-md-12 col-sm-12">
-                    <button class="btn btn-outline-primary text-center" type="button" style="width: 80%;"  data-toggle="collapse" data-target="#chart" aria-expanded="false" aria-controls="chart" onclick="rend();">Show chart</button>
+                  <div class="col-lg-6">
+                    <button class="btn btn-primary text-center" type="button" style="width: 80%;"  data-toggle="collapse" data-target="#settings" aria-expanded="false" aria-controls="chart">Settings</button>
                   </div>
+                  <div class="col-lg-6">
+                    <button class="btn btn-primary text-center" type="button" style="width: 80%;"  data-toggle="collapse" data-target="#chart" aria-expanded="false" aria-controls="chart" onclick="rend();">Show chart</button>
+                  </div>
+                  <div class="col-lg-6 col-md-12 col-sm-12 text-center">
+                    <br>
+                    <div class="collapse" id="settings">
+                      <div class="card text-dark bg-light">
+                        <div class="card-body text-center">
+                          <h5 class="card-title text-center ">Chart Settings</h5>
+                          <input >
+                          <button class="btn btn-outline-primary" type="button" style="width: 20%;" onclick="close_colapse()">Close</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
                   <div class="col-lg-12 col-md-12 col-sm-12 text-center">
                     <br>
                     <div class="collapse" id="chart">
                       <div class="card text-dark bg-light">
                         <div class="card-body">
                           <h5 class="card-title text-center ">Real Time Temperature (C°)</h5>
-                          <div id="chartContainer" style=" height: 480px; weight:100%;"></div>
+                          <div id="chartContainer" style=" height: 480px; width:100%;"></div>
                           <button class="btn btn-outline-primary" type="button" style="width: 20%;" onclick="close_colapse()">Close</button>
                         </div>
                       </div>
                     </div>
                   </div>
+
                 </div>
               </div>
             </div>

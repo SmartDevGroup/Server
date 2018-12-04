@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.7
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Дек 01 2018 г., 13:31
--- Версия сервера: 5.6.38
--- Версия PHP: 5.5.38
+-- Время создания: Дек 04 2018 г., 11:13
+-- Версия сервера: 5.6.41
+-- Версия PHP: 5.6.38
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -117,7 +117,7 @@ CREATE TABLE `bedroom` (
 --
 
 INSERT INTO `bedroom` (`id`, `api_key`, `bedroom_light`, `dimer`, `Sum`, `bedroom_socket_1`, `bedroom_socket_2`, `bedroom_socket_3`, `bedroom_socket_4`, `bedroom_socket_5`, `bedroom_socket_6`, `b_temp_sock_1`, `b_temp_sock_2`, `b_temp_sock_3`, `b_temp_sock_4`, `b_temp_sock_5`, `b_temp_sock_6`, `name_sock_1`, `name_sock_2`, `name_sock_3`, `name_sock_4`, `name_sock_5`, `name_sock_6`, `name_light`, `con_sock_1`, `con_sock_2`, `con_sock_3`, `con_sock_4`, `con_sock_5`, `con_sock_6`, `date`, `output_b`, `l_b`) VALUES
-(1, 123456789, 0, 68, 6, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0, 0, 25, 'Лампа', 'Телефон', 'Обігрівач', 'Телевізор', 'Кондиціонер', 'Будильник', '', 1, 0, 0, 0, 0, 1, '2018-11-30 09:52:59', 738, 444);
+(1, 123456789, 0, 68, 6, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0, 0, 25, 'Лампа', 'Телефон', 'Обігрівач', 'Телевізор', 'Кондиціонер', 'Будильник', '', 0, 0, 0, 0, 0, 0, '2018-12-01 17:39:10', 754, 460);
 
 -- --------------------------------------------------------
 
@@ -221,7 +221,7 @@ CREATE TABLE `kitchen` (
 --
 
 INSERT INTO `kitchen` (`id`, `api_key`, `kitchen_light`, `dimer`, `kitchen_socket_1`, `kitchen_socket_2`, `kitchen_socket_3`, `kitchen_socket_4`, `kitchen_socket_5`, `kitchen_socket_6`, `Sum`, `k_temp_sock_1`, `k_temp_sock_2`, `k_temp_sock_3`, `k_temp_sock_4`, `k_temp_sock_5`, `k_temp_sock_6`, `name_sock_1`, `name_sock_2`, `name_sock_3`, `name_sock_4`, `name_sock_5`, `name_sock_6`, `con_sock_1`, `con_sock_2`, `con_sock_3`, `con_sock_4`, `con_sock_5`, `con_sock_6`, `date`, `output_k`, `l_k`) VALUES
-(1, 123456789, 0, 47, 0, 0, 0, 0, 0, 0, 6, 30, 30, 30, 30, 30, 30, 'Чайник', 'Холодильник', 'Мультиварка', 'Кавоварка', 'Міксер', 'Телевізор', 1, 1, 1, 1, 1, 1, '2018-11-29 10:48:23', 738, 268);
+(1, 123456789, 0, 47, 0, 0, 0, 0, 0, 0, 6, 30, 30, 30, 30, 30, 30, 'Чайник', 'Холодильник', 'Мультиварка', 'Кавоварка', 'Міксер', 'Телевізор', 0, 0, 0, 0, 0, 0, '2018-11-29 10:48:23', 738, 268);
 
 -- --------------------------------------------------------
 
@@ -274,10 +274,10 @@ INSERT INTO `livingroom` (`id`, `api_key`, `home_light`, `dimer`, `home_socket_1
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `Long_pooling`
+-- Структура таблицы `long_pooling`
 --
 
-CREATE TABLE `Long_pooling` (
+CREATE TABLE `long_pooling` (
   `id` int(11) NOT NULL,
   `api_key` int(11) NOT NULL,
   `output_b` int(11) DEFAULT NULL,
@@ -288,10 +288,10 @@ CREATE TABLE `Long_pooling` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `Long_pooling`
+-- Дамп данных таблицы `long_pooling`
 --
 
-INSERT INTO `Long_pooling` (`id`, `api_key`, `output_b`, `output_k`, `output_ba`, `output_h`, `date`) VALUES
+INSERT INTO `long_pooling` (`id`, `api_key`, `output_b`, `output_k`, `output_ba`, `output_h`, `date`) VALUES
 (1, 123456789, 291, 234, 89, 40, '2018-11-27 18:10:11');
 
 -- --------------------------------------------------------
@@ -1016,9 +1016,9 @@ ALTER TABLE `livingroom`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `Long_pooling`
+-- Индексы таблицы `long_pooling`
 --
-ALTER TABLE `Long_pooling`
+ALTER TABLE `long_pooling`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1080,9 +1080,9 @@ ALTER TABLE `livingroom`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT для таблицы `Long_pooling`
+-- AUTO_INCREMENT для таблицы `long_pooling`
 --
-ALTER TABLE `Long_pooling`
+ALTER TABLE `long_pooling`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
