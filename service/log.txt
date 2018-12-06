@@ -1,8 +1,8 @@
 array(24) {
   ["temp_1"]=>
-  int(20)
+  int(0)
   ["conn_1"]=>
-  int(1)
+  string(4) "null"
   ["temp_2"]=>
   int(0)
   ["conn_2"]=>
@@ -20,9 +20,9 @@ array(24) {
   ["conn_5"]=>
   string(4) "null"
   ["temp_6"]=>
-  int(25)
+  int(0)
   ["conn_6"]=>
-  int(1)
+  string(4) "null"
   ["temp_7"]=>
   int(0)
   ["conn_7"]=>
@@ -48,4 +48,4 @@ array(24) {
   ["conn_12"]=>
   string(4) "null"
 }
- 20 1
+ 0 null

@@ -2,12 +2,12 @@
 session_start();
 $get_key = $_SESSION['api'];
 date_default_timezone_set('Europe/Kiev');
-$time = date("Y-n-j G:i:s");
-$time."   ";
+//$time = date("Y-n-j G:i:s");
+//$time."   ";
 //echo int mktime( 0, 0, 0, date("n"), date("j") - 1, date("Y"));
 
-$lol = mktime (date("H"), date("i"), date("s") , date("n"), date("j") - 1, date("Y"))."  ";
-$date = gmdate("Y-n-j G:i:s", $lol);
+//$lol = mktime (date("H"), date("i"), date("s") , date("n"), date("j") - 1, date("Y"))."  ";
+//$date = gmdate("Y-n-j G:i:s", $lol);
 
 $link=mysqli_connect("localhost", "root", "", "server");
 

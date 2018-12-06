@@ -104,7 +104,7 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
                   </div>
                 </nav>
                 <div class="row ">
-                  <div class="col-lg-8 col-md-12 col-sm-8 text-center ">
+                  <div class="col-lg-8 col-md-12 col-sm-12 col-12 text-center ">
                     <table class="table table-light text-center table-hover">
                         <thead>
                           <tr>

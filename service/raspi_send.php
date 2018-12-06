@@ -5,6 +5,10 @@ $get_key = $data["user"];
 for ($i=1; $i < 13; $i++) {
   $array["temp_$i"] = intval($data["$i"]["temp"]);
   $array["conn_$i"] = $data["$i"]["connection"];
+  if($array["temp_$i"] == "-127")
+  {
+    $array["temp_$i"] = 25;
+  }
 }
 
 ob_start();
