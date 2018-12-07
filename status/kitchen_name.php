@@ -3,7 +3,7 @@
 session_start();
 $get_key = $_SESSION['api'];
 
-$link=mysqli_connect("localhost", "root", "", "server");
+$link=mysqli_connect("localhost", "root", "123", "server");
 
 $kitchen = mysqli_query($link, "SELECT * FROM kitchen WHERE api_key='$get_key'");
 $data = mysqli_fetch_assoc($kitchen);

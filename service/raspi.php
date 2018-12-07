@@ -6,7 +6,7 @@ set_time_limit(40);
 $api_key = $_GET['api'];
 $connection = $_GET['con'];
 
-$link=mysqli_connect("localhost", "root", "", "server");
+$link=mysqli_connect("localhost", "root", "123", "server");
 
 $mysql = mysqli_query($link,"SELECT * FROM users WHERE api_key = '$api_key'");
 $num_rows = mysqli_num_rows($mysql);

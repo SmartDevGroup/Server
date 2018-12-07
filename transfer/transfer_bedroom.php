@@ -23,7 +23,7 @@ if($bedroom["bedroom_light"] == "")
   $bedroom["bedroom_light"] = 0;
 }
 
-$link=mysqli_connect("localhost", "root", "", "server");
+$link=mysqli_connect("localhost", "root", "123", "server");
 
 
 //echo var_dump($bedroom);

@@ -1,7 +1,7 @@
 <?php
 session_start();
 $get_key = $_SESSION['api'];
-$link=mysqli_connect("localhost", "root", "", "server");
+$link=mysqli_connect("localhost", "root", "123", "server");
 //mysqli_query($link, "UPDATE livingroom SET l_h = l_h + 1 WHERE api_key = '$get_key'");
 if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
   include 'status/home_sum.php';

@@ -1,7 +1,7 @@
 <?php
 header("Refresh: 10");
 $get_key = $_GET['api'];
-$link=mysqli_connect("localhost", "root", "", "server");
+$link=mysqli_connect("localhost", "root", "123", "server");
 
 $id = mysqli_query($link, "SELECT COUNT(id) as count FROM  temp");
 $data = mysqli_fetch_assoc($id);

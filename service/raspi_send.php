@@ -1,6 +1,6 @@
 <?php
 $data = json_decode(file_get_contents('php://input'), true);
-$link=mysqli_connect("localhost", "root", "", "server");
+$link=mysqli_connect("localhost", "root", "123", "server");
 $get_key = $data["user"];
 for ($i=1; $i < 13; $i++) {
   $array["temp_$i"] = intval($data["$i"]["temp"]);

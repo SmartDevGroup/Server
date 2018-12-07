@@ -2,7 +2,7 @@
 
 $serial_rasp = $_GET['serial'];
 
-$link=mysqli_connect("localhost", "root", "", "server");
+$link=mysqli_connect("localhost", "root", "123", "server");
 
 $id = mysqli_query($link, "SELECT COUNT(id) as count FROM  brain");
 $data = mysqli_fetch_assoc($id);

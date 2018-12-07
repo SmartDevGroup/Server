@@ -9,7 +9,7 @@ date_default_timezone_set('Europe/Kiev');
 $lol = mktime (date("H"), date("i"), date("s") , date("n"), date("j") - 1, date("Y"))."  ";
 $date = gmdate("Y-n-j G:i:s", $lol);
 
-$link=mysqli_connect("localhost", "root", "", "server");
+$link=mysqli_connect("localhost", "root", "123", "server");
 
 $res = mysqli_query($link, "SELECT * FROM temp WHERE (date >= '$date' AND date <= NOW()) AND api_key='$get_key'");
 $a = 1;

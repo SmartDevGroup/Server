@@ -6,7 +6,7 @@ set_time_limit(40);
 
 $api_key = $_GET['api'];
 
-$link=mysqli_connect("localhost", "root", "", "server");
+$link=mysqli_connect("localhost", "root", "123", "server");
 
 while (true) {
   $select_data_bedroom = mysqli_query($link,"SELECT * FROM bedroom WHERE api_key = '$api_key'");

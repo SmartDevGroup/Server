@@ -2,7 +2,7 @@
 
 $get_key = $_POST['user'];
 
-$link=mysqli_connect("localhost", "root", "", "server");
+$link=mysqli_connect("localhost", "root", "123", "server");
 
 for ($i=1; $i < 7; $i++) {
     $array["b_temp_$i"] = $_POST["$i"];

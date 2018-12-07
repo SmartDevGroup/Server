@@ -22,7 +22,7 @@ if($bathroom["bathroom_light"] == "")
   $bathroom["bathroom_light"] = 0;
 }
 
-$link=mysqli_connect("localhost", "root", "", "server");
+$link=mysqli_connect("localhost", "root", "123", "server");
 
 if($bathroom["dimer"] == "")
 {

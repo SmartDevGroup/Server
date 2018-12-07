@@ -7,7 +7,7 @@ session_start();
 //$get_key = $_COOKIE['api'];
 //$get_key = $_GET['api'];
 $get_key = $_SESSION['api'];
-$link=mysqli_connect("localhost", "root", "", "server");
+$link=mysqli_connect("localhost", "root", "123", "server");
 
 
 /*

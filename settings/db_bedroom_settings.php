@@ -18,7 +18,7 @@ $name_4 = $_POST['name_b_4'];
 $name_5 = $_POST['name_b_5'];
 $name_6 = $_POST['name_b_6'];
 
-$link=mysqli_connect("localhost", "root", "", "server");
+$link=mysqli_connect("localhost", "root", "123", "server");
 
 
 

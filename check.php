@@ -19,7 +19,7 @@ if (empty($login) or empty($password)) //если пользователь не 
     $password = trim($password);
 
      //Подключаемся к базе данных.
-    $dbcon = mysql_connect("localhost", "root", "");
+    $dbcon = mysql_connect("localhost", "root", "123");
     mysql_select_db("server", $dbcon);
     if (!$dbcon)
     {
@@ -46,7 +46,7 @@ $result = mysql_query("SELECT * FROM users WHERE login='$login'", $dbcon);
     $_SESSION['login']=$myrow["login"];
     $_SESSION['id']=$myrow["id"];//эти данные очень часто используются, вот их и будет "носить с собой" вошедший пользователь
 	//API_KEY
-	$link=mysqli_connect("localhost", "root", "", "server");
+	$link=mysqli_connect("localhost", "root", "123", "server");
 	$api_key = mysqli_query($link,"SELECT api_key FROM users WHERE login='$login'");
 	$key = mysqli_fetch_assoc($api_key);
 	$get = $key['api_key'];

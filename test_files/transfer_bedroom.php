@@ -20,7 +20,7 @@ if($bedroom_socket_5 == "") {$bedroom_socket_5 = 0;}
 if($bedroom_socket_6 == "") {$bedroom_socket_6 = 0;}
 if($bedroom_light == "") {$bedroom_light = 0;}
 
-$link=mysqli_connect("localhost", "root", "", "server");
+$link=mysqli_connect("localhost", "root", "123", "server");
 
 
 if($dimer == "")

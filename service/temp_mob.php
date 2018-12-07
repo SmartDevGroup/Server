@@ -1,7 +1,7 @@
 <?php
 $get_key = $_GET['api'];
 
-$link=mysqli_connect("localhost", "root", "", "server");
+$link=mysqli_connect("localhost", "root", "123", "server");
 
 $bedroom = mysqli_query($link, "SELECT * FROM bedroom WHERE api_key='$get_key'");
 $data = mysqli_fetch_assoc($bedroom);

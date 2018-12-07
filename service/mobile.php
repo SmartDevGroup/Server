@@ -2,7 +2,7 @@
 
 if (isset($_GET['login'])) { $login=$_GET['login']; if ($login =='') { unset($login);} }
 if (isset($_GET['pass'])) { $password=$_GET['pass']; if ($password =='') { unset($password);} }
-$link=mysqli_connect("localhost", "root", "", "server");
+$link=mysqli_connect("localhost", "root", "123", "server");
 
 
 $login = stripslashes($login);
