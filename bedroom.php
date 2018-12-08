@@ -169,16 +169,13 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
                       </div>
                     </div>
                   </div>
-
                 </div>
               </div>
-
-              </div>
             </div>
-
           </div>
         </div>
       </div>
+    </div>
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -187,8 +184,6 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
                 $(this).toggleClass('active');
             });
             myFunction();
-            //alert(window.screen.availHeight);
-            //alert(window.screen.availWidth);
         });
 
         var myVar;
