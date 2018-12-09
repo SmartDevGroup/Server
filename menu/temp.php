@@ -1,133 +1,89 @@
 <?php
 session_start();
-$get_key = $_SESSION['api'];
-
+$get_key = "123456789";//$_SESSION['api'];
 $link=mysqli_connect("localhost", "root", "123", "server");
 
-$data_kitchen = mysqli_query($link, "SELECT * FROM kitchen WHERE api_key='$get_key'");
-$kitchen= mysqli_fetch_assoc($data_kitchen);
-
-$k_temp_1 = $kitchen['k_temp_sock_1'];
-$k_temp_2 = $kitchen['k_temp_sock_2'];
-$k_temp_3 = $kitchen['k_temp_sock_3'];
-$k_temp_4 = $kitchen['k_temp_sock_4'];
-$k_temp_5 = $kitchen['k_temp_sock_5'];
-$k_temp_6 = $kitchen['k_temp_sock_6'];
-$sum_kit_sock = $kitchen['Sum'];
-
-if ($sum_kit_sock == 6) {
-  $sum_kit_temp = ($k_temp_1 + $k_temp_2 + $k_temp_3 + $k_temp_4 + $k_temp_5 + $k_temp_6) / 6;
-}
-if($sum_kit_sock == 5){
-  $sum_kit_temp = ($k_temp_1 + $k_temp_2 + $k_temp_3 + $k_temp_4 + $k_temp_5) / 5;
-}
-if($sum_kit_sock == 4){
-  $sum_kit_temp = ($k_temp_1 + $k_temp_2 + $k_temp_3 + $k_temp_4) / 4;
-}
-if($sum_kit_sock == 3){
-  $sum_kit_temp = ($k_temp_1 + $k_temp_2 + $k_temp_3) / 3;
-}
-if($sum_kit_sock == 2){
-  $sum_kit_temp = ($k_temp_1 + $k_temp_2) / 2;
-}
-if($sum_kit_sock == 1){
-  $sum_kit_temp = ($k_temp_1) / 1;
-}
-///BEDROOM
 $data_bedroom = mysqli_query($link, "SELECT * FROM bedroom WHERE api_key='$get_key'");
-$bedroom= mysqli_fetch_assoc($data_bedroom);
-
-$b_temp_1 = $bedroom['b_temp_sock_1'];
-$b_temp_2 = $bedroom['b_temp_sock_2'];
-$b_temp_3 = $bedroom['b_temp_sock_3'];
-$b_temp_4 = $bedroom['b_temp_sock_4'];
-$b_temp_5 = $bedroom['b_temp_sock_5'];
-$b_temp_6 = $bedroom['b_temp_sock_6'];
-$sum_bed_sock = $bedroom['Sum'];
-
-if ($sum_bed_sock == 6) {
-  $sum_bed_temp = ($b_temp_1 + $b_temp_2 + $b_temp_3 + $b_temp_4 + $b_temp_5 + $b_temp_6) / 6;
+$bedroom = mysqli_fetch_assoc($data_bedroom);
+$max_bedroom = $bedroom['Sum'];
+$max_bedroom_temp = 0;
+for ($i=1; $i < 7; $i++) {
+  $array["b_$i"] = $bedroom["b_temp_sock_$i"];
+  if($array["b_$i"] == 0)
+  {
+    $max_bedroom = $max_bedroom - 1;
+  }
+  $max_bedroom_temp += $array["b_$i"];
 }
-if($sum_bed_sock == 5){
-  $sum_bed_temp = ($b_temp_1 + $b_temp_2 + $b_temp_3 + $b_temp_4 + $b_temp_5) / 5;
+if($max_bedroom_temp == 0 || $max_bedroom == 0)
+{
+  $average_bedroom = 0;
 }
-if($sum_bed_sock == 4){
-  $sum_bed_temp = ($b_temp_1 + $b_temp_2 + $b_temp_3 + $b_temp_4) / 4;
-}
-if($sum_bed_sock == 3){
-  $sum_bed_temp = ($b_temp_1 + $b_temp_2 + $b_temp_3) / 3;
-}
-if($sum_bed_sock == 2){
-  $sum_bed_temp = ($b_temp_1 + $b_temp_2) / 2;
-}
-if($sum_bed_sock == 1){
-  $sum_bed_temp = ($b_temp_1) / 1;
+else {
+  $average_bedroom = $max_bedroom_temp / $max_bedroom;
 }
 
+$data_kitchen = mysqli_query($link, "SELECT * FROM kitchen WHERE api_key='$get_key'");
+$kitchen = mysqli_fetch_assoc($data_kitchen);
+$max_kitchen = $kitchen['Sum'];
+$max_kitchen_temp = 0;
+for ($i=1; $i < 7; $i++) {
+  $array["k_$i"] = $kitchen["k_temp_sock_$i"];
+  if($array["k_$i"] == 0)
+  {
+    $max_kitchen = $max_kitchen - 1;
+  }
+  $max_kitchen_temp += $array["k_$i"];
+}
+if($max_kitchen_temp == 0 || $max_kitchen == 0)
+{
+  $average_kitchen = 0;
+}
+else {
+  $average_kitchen = $max_kitchen_temp / $max_kitchen;
+}
 
-///BATHROOM
 $data_bathroom = mysqli_query($link, "SELECT * FROM bathroom WHERE api_key='$get_key'");
-$bathroom= mysqli_fetch_assoc($data_bathroom);
-
-$ba_temp_1 = $bathroom['ba_temp_sock_1'];
-$ba_temp_2 = $bathroom['ba_temp_sock_2'];
-$ba_temp_3 = $bathroom['ba_temp_sock_3'];
-$ba_temp_4 = $bathroom['ba_temp_sock_4'];
-$ba_temp_5 = $bathroom['ba_temp_sock_5'];
-$ba_temp_6 = $bathroom['ba_temp_sock_6'];
-$sum_ba_sock = $bathroom['Sum'];
-
-if ($sum_ba_sock == 6) {
-  $sum_ba_temp = ($ba_temp_1 + $ba_temp_2 + $ba_temp_3 + $ba_temp_4 + $ba_temp_5 + $ba_temp_6) / 6;
+$bathroom = mysqli_fetch_assoc($data_bathroom);
+$max_bathroom = $bathroom['Sum'];
+$max_bathroom_temp = 0;
+for ($i=1; $i < 7; $i++) {
+  $array["ba_$i"] = $bathroom["ba_temp_sock_$i"];
+  if($array["ba_$i"] == 0)
+  {
+    $max_bathroom = $max_bathroom - 1;
+  }
+  $max_bathroom_temp += $array["ba_$i"];
 }
-if($sum_ba_sock == 5){
-  $sum_ba_temp = ($ba_temp_1 + $ba_temp_2 + $ba_temp_3 + $ba_temp_4 + $ba_temp_5) / 5;
+if($max_bathroom_temp == 0 || $max_bathroom == 0)
+{
+  $average_bathroom = 0;
 }
-if($sum_ba_sock == 4){
-  $sum_ba_temp = ($ba_temp_1 + $ba_temp_2 + $ba_temp_3 + $ba_temp_4) / 4;
-}
-if($sum_ba_sock == 3){
-  $sum_ba_temp = ($ba_temp_1 + $ba_temp_2 + $ba_temp_3) / 3;
-}
-if($sum_ba_sock == 2){
-  $sum_ba_temp = ($ba_temp_1 + $ba_temp_2) / 2;
-}
-if($sum_ba_sock == 1){
-  $sum_ba_temp = ($ba_temp_1) / 1;
+else {
+  $average_bathroom = $max_bathroom_temp / $max_bathroom;
 }
 
-///LIVING
-$data_living = mysqli_query($link, "SELECT * FROM livingroom WHERE api_key='$get_key'");
-$living= mysqli_fetch_assoc($data_living);
-
-$l_temp_1 = $living['h_temp_sock_1'];
-$l_temp_2 = $living['h_temp_sock_2'];
-$l_temp_3 = $living['h_temp_sock_3'];
-$l_temp_4 = $living['h_temp_sock_4'];
-$l_temp_5 = $living['h_temp_sock_5'];
-$l_temp_6 = $living['h_temp_sock_6'];
-$sum_l_sock = $living['Sum'];
-
-if ($sum_l_sock == 6) {
-  $sum_l_temp = ($l_temp_1 + $l_temp_2 + $l_temp_3 + $l_temp_4 + $l_temp_5 + $l_temp_6) / 6;
+$data_livingroom = mysqli_query($link, "SELECT * FROM livingroom  WHERE api_key='$get_key'");
+$livingroom  = mysqli_fetch_assoc($data_livingroom);
+$max_livingroom = $livingroom['Sum'];
+$max_livingroom_temp = 0;
+for ($i=1; $i < 7; $i++) {
+  $array["h_$i"] = $livingroom["h_temp_sock_$i"];
+  if($array["h_$i"] == 0)
+  {
+    $max_livingroom = $max_livingroom - 1;
+  }
+  $max_livingroom_temp += $array["h_$i"];
 }
-if($sum_l_sock == 5){
-  $sum_l_temp = ($l_temp_1 + $l_temp_2 + $l_temp_3 + $l_temp_4 + $l_temp_5) / 5;
+if($max_livingroom_temp == 0 || $max_livingroom == 0)
+{
+  $average_livingroom = 0;
 }
-if($sum_l_sock == 4){
-  $sum_l_temp = ($l_temp_1 + $l_temp_2 + $l_temp_3 + $l_temp_4) / 4;
-}
-if($sum_l_sock == 3){
-  $sum_l_temp = ($l_temp_1 + $l_temp_2 + $l_temp_3) / 3;
-}
-if($sum_l_sock == 2){
-  $sum_l_temp = ($l_temp_1 + $l_temp_2) / 2;
-}
-if($sum_l_sock == 1){
-  $sum_l_temp = ($l_temp_1) / 1;
+else {
+  $average_livingroom = $max_livingroom_temp / $max_livingroom;
 }
 
-$temp = array('kit_temp' => round($sum_kit_temp, 1), 'bed_temp' => round($sum_bed_temp, 1), 'ba_temp' => round($sum_ba_temp, 1), 'l_temp' => round($sum_l_temp, 1));
+$temp = array('kit_temp' => round($average_kitchen, 1), 'bed_temp' => round($average_bedroom, 1), 'ba_temp' => round($average_bathroom, 1), 'l_temp' => round($average_livingroom, 1));
 $json = json_encode($temp);
 echo $json;
- ?>
+?>

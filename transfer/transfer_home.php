@@ -26,14 +26,16 @@ if($living["home_light"] == "")
 $link=mysqli_connect("localhost", "root", "123", "server");
 
 
-echo var_dump($living);
+
 
 if($living['dimer'] == "")
 {
-  $update_living = mysqli_query($link, "UPDATE livingroom SET home_socket_1=$living[home_socket_1], home_socket_2=$living[home_socket_2], home_socket_3=$living[home_socket_3], home_socket_4=$living[home_socket_4], home_socket_5=$living[home_socket_5], home_socket_6=$living[home_socket_6], living_light=$living[living_light],
-    output_h = output_h + 1, l_h = l_h + 1, date= NOW() WHERE api_key='$get_key'");
+  echo "string";
+  $update_living = mysqli_query($link, "UPDATE livingroom SET home_socket_1=$living[home_socket_1], home_socket_2=$living[home_socket_2], home_socket_3=$living[home_socket_3], home_socket_4=$living[home_socket_4], home_socket_5=$living[home_socket_5], home_socket_6=$living[home_socket_6],
+    home_light=$living[home_light], output_h = output_h + 1, l_h = l_h + 1, date= NOW() WHERE api_key='$get_key'");
 }
 else {
+  echo "stringasa";
   $update_living = mysqli_query($link, "UPDATE livingroom SET home_socket_1=$living[home_socket_1], home_socket_2=$living[home_socket_2], home_socket_3=$living[home_socket_3], home_socket_4=$living[home_socket_4], home_socket_5=$living[home_socket_5], home_socket_6=$living[home_socket_6],
     home_light=$living[home_light], dimer = $living[dimer], output_h = output_h + 1, l_h = l_h + 1, date= NOW() WHERE api_key='$get_key'");
 }
