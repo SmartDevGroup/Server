@@ -1,29 +1,14 @@
 function bedroom_save()
 {
   var array = {};
-
+  alert("asdas")
   array.numb_of_sockets = $('#bedroom_socket option:selected').val();
-  array.id_1 = $('#id_b_1').val();
-  array.id_2 = $('#id_b_2').val();
-  array.id_3 = $('#id_b_3').val();
-  array.id_4 = $('#id_b_4').val();
-  array.id_5 = $('#id_b_5').val();
-  array.id_6 = $('#id_b_6').val();
+  for (var i = 1; i < 7; i++) {
+    array['id_'+i] = $("#id_b_"+[i]).val();
+    array['name_b_'+i] = $("#name_b_"+[i]).val();
+    if(array['id_'+i] == ""){array['id_'+i] = 0;}
+  }
 
-  array.name_b_1 = $('#name_b_1').val();
-  array.name_b_2 = $('#name_b_2').val();
-  array.name_b_3 = $('#name_b_3').val();
-  array.name_b_4 = $('#name_b_4').val();
-  array.name_b_5 = $('#name_b_5').val();
-  array.name_b_6 = $('#name_b_6').val();
-
-
-  if(array.id_1 == ""){array.id_1 = 0;}
-  if(array.id_2 == ""){array.id_2 = 0;}
-  if(array.id_3 == ""){array.id_3 = 0;}
-  if(array.id_4 == ""){array.id_4 = 0;}
-  if(array.id_5 == ""){array.id_5 = 0;}
-  if(array.id_6 == ""){array.id_6 = 0;}
   $.ajax({
   type: 'POST',
   url: 'settings/db_bedroom_settings.php',
@@ -43,18 +28,10 @@ function id_bedroom()
   cache: false,
   success: function(json){
     var data = JSON.parse(json);
-    $('#id_b_1').val(data.id_b_1);
-    $('#id_b_2').val(data.id_b_2);
-    $('#id_b_3').val(data.id_b_3);
-    $('#id_b_4').val(data.id_b_4);
-    $('#id_b_5').val(data.id_b_5);
-    $('#id_b_6').val(data.id_b_6);
-    $('#name_b_1').val(data.name_b_1);
-    $('#name_b_2').val(data.name_b_2);
-    $('#name_b_3').val(data.name_b_3);
-    $('#name_b_4').val(data.name_b_4);
-    $('#name_b_5').val(data.name_b_5);
-    $('#name_b_6').val(data.name_b_6);
+    for (var i = 1; i < 7; i++) {
+      $("#id_b_"+[i]).val(data['id_b_'+i]);
+      $("#name_b_"+[i]).val(data['name_b_'+i]);
+    }
     status_bedroom();
   }
   });
@@ -66,12 +43,9 @@ function status_bedroom()
   cache: false,
   success: function(json){
     var data = JSON.parse(json);
-    $('#bed_stat_1').html(data.bed_stat_1);
-    $('#bed_stat_2').html(data.bed_stat_2);
-    $('#bed_stat_3').html(data.bed_stat_3);
-    $('#bed_stat_4').html(data.bed_stat_4);
-    $('#bed_stat_5').html(data.bed_stat_5);
-    $('#bed_stat_6').html(data.bed_stat_6);
+    for (var i = 1; i < 7; i++) {
+      $("#bed_stat_"+[i]).html(data['bed_stat_'+i]);
+    }
     }
   });
 }
@@ -83,26 +57,12 @@ function kitchen_save()
   var array = {};
 
   array.numb_of_sockets = $('#kitchen_socket option:selected').val();
-  array.id_1 = $('#id_k_1').val();
-  array.id_2 = $('#id_k_2').val();
-  array.id_3 = $('#id_k_3').val();
-  array.id_4 = $('#id_k_4').val();
-  array.id_5 = $('#id_k_5').val();
-  array.id_6 = $('#id_k_6').val();
+  for (var i = 1; i < 7; i++) {
+    array['id_'+i] = $("#id_k_"+[i]).val();
+    array['name_k_'+i] = $("#name_k_"+[i]).val();
+    if(array['id_'+i] == ""){array['id_'+i] = 0;}
+  }
 
-  array.name_k_1 = $('#name_k_1').val();
-  array.name_k_2 = $('#name_k_2').val();
-  array.name_k_3 = $('#name_k_3').val();
-  array.name_k_4 = $('#name_k_4').val();
-  array.name_k_5 = $('#name_k_5').val();
-  array.name_k_6 = $('#name_k_6').val();
-
-  if(array.id_1 == ""){array.id_1 = 0;}
-  if(array.id_2 == ""){array.id_2 = 0;}
-  if(array.id_3 == ""){array.id_3 = 0;}
-  if(array.id_4 == ""){array.id_4 = 0;}
-  if(array.id_5 == ""){array.id_5 = 0;}
-  if(array.id_6 == ""){array.id_6 = 0;}
   $.ajax({
   type: 'POST',
   url: 'settings/db_kitchen_settings.php',
@@ -122,18 +82,10 @@ function id_kitchen()
   cache: false,
   success: function(json){
     var data = JSON.parse(json);
-    $('#id_k_1').val(data.id_k_1);
-    $('#id_k_2').val(data.id_k_2);
-    $('#id_k_3').val(data.id_k_3);
-    $('#id_k_4').val(data.id_k_4);
-    $('#id_k_5').val(data.id_k_5);
-    $('#id_k_6').val(data.id_k_6);
-    $('#name_k_1').val(data.name_k_1);
-    $('#name_k_2').val(data.name_k_2);
-    $('#name_k_3').val(data.name_k_3);
-    $('#name_k_4').val(data.name_k_4);
-    $('#name_k_5').val(data.name_k_5);
-    $('#name_k_6').val(data.name_k_6);
+    for (var i = 1; i < 7; i++) {
+      $("#id_k_"+[i]).val(data['id_k_'+i]);
+      $("#name_k_"+[i]).val(data['name_k_'+i]);
+    }
     status_kitchen();
   }
   });
@@ -145,12 +97,9 @@ function status_kitchen()
   cache: false,
   success: function(json){
     var data = JSON.parse(json);
-    $('#kit_stat_1').html(data.kit_stat_1);
-    $('#kit_stat_2').html(data.kit_stat_2);
-    $('#kit_stat_3').html(data.kit_stat_3);
-    $('#kit_stat_4').html(data.kit_stat_4);
-    $('#kit_stat_5').html(data.kit_stat_5);
-    $('#kit_stat_6').html(data.kit_stat_6);
+    for (var i = 1; i < 7; i++) {
+      $("#kit_stat_"+[i]).html(data['kit_stat_'+i]);
+    }
     }
   });
 }
@@ -160,26 +109,12 @@ function bathroom_save()
   var array = {};
 
   array.numb_of_sockets = $('#bathroom_socket option:selected').val();
-  array.id_1 = $('#id_ba_1').val();
-  array.id_2 = $('#id_ba_2').val();
-  array.id_3 = $('#id_ba_3').val();
-  array.id_4 = $('#id_ba_4').val();
-  array.id_5 = $('#id_ba_5').val();
-  array.id_6 = $('#id_ba_6').val();
+  for (var i = 1; i < 7; i++) {
+    array['id_'+i] = $("#id_ba_"+[i]).val();
+    array['name_ba_'+i] = $("#name_ba_"+[i]).val();
+    if(array['id_'+i] == ""){array['id_'+i] = 0;}
+  }
 
-  array.name_ba_1 = $('#name_ba_1').val();
-  array.name_ba_2 = $('#name_ba_2').val();
-  array.name_ba_3 = $('#name_ba_3').val();
-  array.name_ba_4 = $('#name_ba_4').val();
-  array.name_ba_5 = $('#name_ba_5').val();
-  array.name_ba_6 = $('#name_ba_6').val();
-
-  if(array.id_1 == ""){array.id_1 = 0;}
-  if(array.id_2 == ""){array.id_2 = 0;}
-  if(array.id_3 == ""){array.id_3 = 0;}
-  if(array.id_4 == ""){array.id_4 = 0;}
-  if(array.id_5 == ""){array.id_5 = 0;}
-  if(array.id_6 == ""){array.id_6 = 0;}
   $.ajax({
   type: 'POST',
   url: 'settings/db_bathroom_settings.php',
@@ -199,18 +134,10 @@ function id_bathroom()
   cache: false,
   success: function(json){
     var data = JSON.parse(json);
-    $('#id_ba_1').val(data.id_ba_1);
-    $('#id_ba_2').val(data.id_ba_2);
-    $('#id_ba_3').val(data.id_ba_3);
-    $('#id_ba_4').val(data.id_ba_4);
-    $('#id_ba_5').val(data.id_ba_5);
-    $('#id_ba_6').val(data.id_ba_6);
-    $('#name_ba_1').val(data.name_ba_1);
-    $('#name_ba_2').val(data.name_ba_2);
-    $('#name_ba_3').val(data.name_ba_3);
-    $('#name_ba_4').val(data.name_ba_4);
-    $('#name_ba_5').val(data.name_ba_5);
-    $('#name_ba_6').val(data.name_ba_6);
+    for (var i = 1; i < 7; i++) {
+      $("#id_ba_"+[i]).val(data['id_ba_'+i]);
+      $("#name_ba_"+[i]).val(data['name_ba_'+i]);
+    }
     status_bathroom();
   }
   });
@@ -222,12 +149,9 @@ function status_bathroom()
   cache: false,
   success: function(json){
     var data = JSON.parse(json);
-    $('#ba_stat_1').html(data.ba_stat_1);
-    $('#ba_stat_2').html(data.ba_stat_2);
-    $('#ba_stat_3').html(data.ba_stat_3);
-    $('#ba_stat_4').html(data.ba_stat_4);
-    $('#ba_stat_5').html(data.ba_stat_5);
-    $('#ba_stat_6').html(data.ba_stat_6);
+    for (var i = 1; i < 7; i++) {
+      $("#ba_stat_"+[i]).html(data['ba_stat_'+i]);
+    }
     }
   });
 }
@@ -237,26 +161,12 @@ function living_save()
   var array = {};
 
   array.numb_of_sockets = $('#living_socket option:selected').val();
-  array.id_1 = $('#id_l_1').val();
-  array.id_2 = $('#id_l_2').val();
-  array.id_3 = $('#id_l_3').val();
-  array.id_4 = $('#id_l_4').val();
-  array.id_5 = $('#id_l_5').val();
-  array.id_6 = $('#id_l_6').val();
+  for (var i = 1; i < 7; i++) {
+    array['id_'+i] = $("#id_l_"+[i]).val();
+    array['name_l_'+i] = $("#name_l_"+[i]).val();
+    if(array['id_'+i] == ""){array['id_'+i] = 0;}
+  }
 
-  array.name_l_1 = $('#name_l_1').val();
-  array.name_l_2 = $('#name_l_2').val();
-  array.name_l_3 = $('#name_l_3').val();
-  array.name_l_4 = $('#name_l_4').val();
-  array.name_l_5 = $('#name_l_5').val();
-  array.name_l_6 = $('#name_l_6').val();
-
-  if(array.id_1 == ""){array.id_1 = 0;}
-  if(array.id_2 == ""){array.id_2 = 0;}
-  if(array.id_3 == ""){array.id_3 = 0;}
-  if(array.id_4 == ""){array.id_4 = 0;}
-  if(array.id_5 == ""){array.id_5 = 0;}
-  if(array.id_6 == ""){array.id_6 = 0;}
   $.ajax({
   type: 'POST',
   url: 'settings/db_living_settings.php',
@@ -276,18 +186,10 @@ function id_living()
   cache: false,
   success: function(json){
     var data = JSON.parse(json);
-    $('#id_l_1').val(data.id_l_1);
-    $('#id_l_2').val(data.id_l_2);
-    $('#id_l_3').val(data.id_l_3);
-    $('#id_l_4').val(data.id_l_4);
-    $('#id_l_5').val(data.id_l_5);
-    $('#id_l_6').val(data.id_l_6);
-    $('#name_l_1').val(data.name_l_1);
-    $('#name_l_2').val(data.name_l_2);
-    $('#name_l_3').val(data.name_l_3);
-    $('#name_l_4').val(data.name_l_4);
-    $('#name_l_5').val(data.name_l_5);
-    $('#name_l_6').val(data.name_l_6);
+    for (var i = 1; i < 7; i++) {
+      $("#id_l_"+[i]).val(data['id_l_'+i]);
+      $("#name_l_"+[i]).val(data['name_l_'+i]);
+    }
   }
   });
   status_living();
@@ -299,12 +201,9 @@ function status_living()
   cache: false,
   success: function(json){
     var data = JSON.parse(json);
-    $('#l_stat_1').html(data.l_stat_1);
-    $('#l_stat_2').html(data.l_stat_2);
-    $('#l_stat_3').html(data.l_stat_3);
-    $('#l_stat_4').html(data.l_stat_4);
-    $('#l_stat_5').html(data.l_stat_5);
-    $('#l_stat_6').html(data.l_stat_6);
+    for (var i = 1; i < 7; i++) {
+      $("#l_stat_"+[i]).html(data['l_stat_'+i]);
+    }
     }
   });
 }
