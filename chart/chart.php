@@ -35,6 +35,7 @@ while($row = mysqli_fetch_array($res))
 //var_dump($temp);
 
 $dataPoints = array();
+
 for ($i=1; $i <= $b; $i++) {
   array_push($dataPoints, array("x" => strtotime($temp["date_$i"]) * 1000, "y" => $temp["b_temp_$i"]));
 }

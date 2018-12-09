@@ -110,7 +110,7 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
                           <tr>
                             <th scope="col">#</th>
                             <th scope="col"><i class="fas fa-thermometer-empty"></i>  C<sup>o</sup></th>
-                            <th scope="col"><i class="fas fa-wifi"></i></i> Connection</th>
+                            <th scope="col"><i class="fas fa-wifi"></i> Connection</th>
                             <th scope="col"><i class="fas fa-plug"></i> Status</th>
                             <th scope="col"><i class="fas fa-sticky-note"></i> Name</th>
                             <th scope="col"><i class="fas fa-power-off"></i> ON/OFF</th>
