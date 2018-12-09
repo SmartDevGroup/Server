@@ -37,7 +37,7 @@ $arr_date = explode("-", $str_date);
 $str_time = $time_bd;
 $arr_time = explode(":", $str_time);
 
-$maketime = mktime ($arr_time[0], $arr_time[1] + 1,  $arr_time[2], $arr_date[1], $arr_date[2], $arr_date[0]);
+$maketime = mktime ($arr_time[0], $arr_time[1] + 10,  $arr_time[2], $arr_date[1], $arr_date[2], $arr_date[0]);
 
 $real_date = date("Y-n-j G:i:s");
 $real_time_sec = strtotime($real_date);
@@ -50,7 +50,4 @@ if($real_time_sec > $maketime)
 
   $insert_temp = mysqli_query($link, "INSERT INTO temp (id, api_key, date, b_sock_1, b_sock_2, b_sock_3, b_sock_4, b_sock_5, b_sock_6) VALUES ($id_bd, $get_key, NOW(), $array[temp_1], $array[temp_2], $array[temp_3], $array[temp_4], $array[temp_5], $array[temp_6])");
 }
-
-
-
 ?>
