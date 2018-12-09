@@ -4,26 +4,18 @@ session_start();
 $get_key = $_SESSION['api'];
 
 $number_of_sockets = $_POST['numb_of_sockets'];
-$id_1 = $_POST['id_1'];
-$id_2 = $_POST['id_2'];
-$id_3 = $_POST['id_3'];
-$id_4 = $_POST['id_4'];
-$id_5 = $_POST['id_5'];
-$id_6 = $_POST['id_6'];
+for ($i=1; $i < 7; $i++) {
+  $arr["id_$i"] = $_POST["id_$i"];
+  $arr["name_$i"] = $_POST["name_ba_$i"];
+}
 
-$name_1 = $_POST['name_ba_1'];
-$name_2 = $_POST['name_ba_2'];
-$name_3 = $_POST['name_ba_3'];
-$name_4 = $_POST['name_ba_4'];
-$name_5 = $_POST['name_ba_5'];
-$name_6 = $_POST['name_ba_6'];
 
 $link=mysqli_connect("localhost", "root", "123", "server");
 
 
 
-$update_bathroom_id = mysqli_query($link, "UPDATE id SET id_ba_1= $id_1, id_ba_2= $id_2, id_ba_3= $id_3, id_ba_4= $id_4, id_ba_5= $id_5, id_ba_6= $id_6 WHERE api_key='$get_key'");
-$update_bedroom_name = mysqli_query($link, "UPDATE bathroom SET name_sock_1= '$name_1', name_sock_2= '$name_2', name_sock_3= '$name_3', name_sock_4= '$name_4', name_sock_5= '$name_5', name_sock_6= '$name_6' WHERE api_key='$get_key'");
+$update_bathroom_id = mysqli_query($link, "UPDATE id SET id_ba_1= $arr[id_1], id_ba_2= $arr[id_2], id_ba_3= $arr[id_3], id_ba_4= $arr[id_4], id_ba_5= $arr[id_5], id_ba_6= $arr[id_6] WHERE api_key='$get_key'");
+$update_bathroom_name = mysqli_query($link, "UPDATE bathroom SET name_sock_1= '$arr[name_1]', name_sock_2= '$arr[name_1]', name_sock_3= '$arr[name_3]', name_sock_4= '$arr[name_4]', name_sock_5= '$arr[name_5]', name_sock_6= '$arr[name_6]' WHERE api_key='$get_key'");
 
 if($number_of_sockets == "")
 {
