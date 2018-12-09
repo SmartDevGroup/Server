@@ -248,12 +248,75 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
       success: function(json_temp){
         var data = JSON.parse(json_temp);
         sum = data.sum;
-        if(sum == 1){yValue1 = parseInt(data.b_s_1); yValue2 = "Disabled";  yValue3= "Disabled"; yValue4 = "Disabled"; yValue5 = "Disabled"; yValue6 = "Disabled";}
-        if(sum == 2){yValue1 = parseInt(data.b_s_1); yValue2 = parseInt(data.b_s_2); yValue3= "Disabled"; yValue4 = "Disabled"; yValue5 = "Disabled"; yValue6 = "Disabled";}
-        if(sum == 3){yValue1 = parseInt(data.b_s_1); yValue2 = parseInt(data.b_s_2);  yValue3= parseInt(data.b_s_3); yValue4 = "Disabled"; yValue5 = "Disabled"; yValue6 = "Disabled";}
-        if(sum == 4){yValue1 = parseInt(data.b_s_1); yValue2 = parseInt(data.b_s_2);  yValue3= parseInt(data.b_s_3); yValue4 = parseInt(data.b_s_4); yValue5 = "Disabled"; yValue6 = "Disabled";}
-        if(sum == 5){yValue1 = parseInt(data.b_s_1); yValue2 = parseInt(data.b_s_2);  yValue3= parseInt(data.b_s_3); yValue4 = parseInt(data.b_s_4); yValue5 = parseInt(data.b_s_5); yValue6 = "Disabled";}
-        if(sum == 6){yValue1 = parseInt(data.b_s_1); yValue2 = parseInt(data.b_s_2);  yValue3= parseInt(data.b_s_3); yValue4 = parseInt(data.b_s_4); yValue5 = parseInt(data.b_s_5); yValue6 = parseInt(data.b_s_6)}
+        if(sum == 1){
+          yValue1 = parseInt(data.b_s_1);
+          if(yValue1 == 0){yValue1 = "OFF";}
+          yValue2 = "Disabled";
+          yValue3= "Disabled";
+          yValue4 = "Disabled";
+          yValue5 = "Disabled";
+          yValue6 = "Disabled";
+        }
+        if(sum == 2){
+          yValue1 = parseInt(data.b_s_1);
+          if(yValue1 == 0){yValue1 = "OFF";}
+          yValue2 = parseInt(data.b_s_2);
+          if(yValue2 == 0){yValue2 = "OFF";}
+          yValue3= "Disabled";
+          yValue4 = "Disabled";
+          yValue5 = "Disabled";
+          yValue6 = "Disabled";
+        }
+        if(sum == 3){
+          yValue1 = parseInt(data.b_s_1);
+          if(yValue1 == 0){yValue1 = "OFF";}
+          yValue2 = parseInt(data.b_s_2);
+          if(yValue2 == 0){yValue2 = "OFF";}
+          yValue3= parseInt(data.b_s_3);
+          if(yValue3 == 0){yValue3 = "OFF";}
+          yValue4 = "Disabled";
+          yValue5 = "Disabled";
+          yValue6 = "Disabled";
+        }
+        if(sum == 4){
+          yValue1 = parseInt(data.b_s_1);
+          if(yValue1 == 0){yValue1 = "OFF";}
+          yValue2 = parseInt(data.b_s_2);
+          if(yValue2 == 0){yValue2 = "OFF";}
+          yValue3= parseInt(data.b_s_3);
+          if(yValue3 == 0){yValue3 = "OFF";}
+          yValue4 = parseInt(data.b_s_4);
+          if(yValue4 == 0){yValue4 = "OFF";}
+          yValue5 = "Disabled";
+          yValue6 = "Disabled";
+        }
+        if(sum == 5){
+          yValue1 = parseInt(data.b_s_1);
+          if(yValue1 == 0){yValue1 = "OFF";}
+          yValue2 = parseInt(data.b_s_2);
+          if(yValue2 == 0){yValue2 = "OFF";}
+          yValue3= parseInt(data.b_s_3);
+          if(yValue3 == 0){yValue3 = "OFF";}
+          yValue4 = parseInt(data.b_s_4);
+          if(yValue4 == 0){yValue4 = "OFF";}
+          yValue5 = parseInt(data.b_s_5);
+          if(yValue5 == 0){yValue5 = "OFF";}
+          yValue6 = "Disabled";
+        }
+        if(sum == 6){
+          yValue1 = parseInt(data.b_s_1);
+          if(yValue1 == 0){yValue1 = "No Connection";}
+          yValue2 = parseInt(data.b_s_2);
+          if(yValue2 == 0){yValue2 = "OFF";}
+          yValue3= parseInt(data.b_s_3);
+          if(yValue3 == 0){yValue3 = "OFF";}
+          yValue4 = parseInt(data.b_s_4);
+          if(yValue4 == 0){yValue4 = "OFF";}
+          yValue5 = parseInt(data.b_s_5);
+          if(yValue5 == 0){yValue5 = "OFF";}
+          yValue6 = parseInt(data.b_s_6)
+          if(yValue6 == 0){yValue6 = "OFF";}
+        }
 
       }
       });

@@ -11,13 +11,17 @@ $(function() {
 function send()
 {
     var socket = {};
-
+    for (var i = 1; i < 7; i++) {
+      socket['bedroom_socket_'+i] = $("#bedroom_socket_"+[i]).val();
+    }
+    /*
     socket.bedroom_socket_1 = $("#bedroom_socket_1").val();
     socket.bedroom_socket_2 = $("#bedroom_socket_2").val();
     socket.bedroom_socket_3 = $("#bedroom_socket_3").val();
     socket.bedroom_socket_4 = $("#bedroom_socket_4").val();
     socket.bedroom_socket_5 = $("#bedroom_socket_5").val();
     socket.bedroom_socket_6 = $("#bedroom_socket_6").val();
+    */
     socket.bedroom_light = $("#bedroom_light").val();
     socket.dimer = $("#dimer").val();
 
