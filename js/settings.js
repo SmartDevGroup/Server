@@ -1,7 +1,6 @@
 function bedroom_save()
 {
   var array = {};
-  alert("asdas")
   array.numb_of_sockets = $('#bedroom_socket option:selected').val();
   for (var i = 1; i < 7; i++) {
     array['id_'+i] = $("#id_b_"+[i]).val();
