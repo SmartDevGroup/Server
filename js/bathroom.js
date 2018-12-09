@@ -4,20 +4,15 @@ $(function() {
       $(this).val($(this).prop('checked')?1:0);
       send();
     })
-
-
 })
 
 function send()
 {
     var socket = {};
 
-    socket.bathroom_socket_1 = $("#bathroom_socket_1").val();
-    socket.bathroom_socket_2 = $("#bathroom_socket_2").val();
-    socket.bathroom_socket_3 = $("#bathroom_socket_3").val();
-    socket.bathroom_socket_4 = $("#bathroom_socket_4").val();
-    socket.bathroom_socket_5 = $("#bathroom_socket_5").val();
-    socket.bathroom_socket_6 = $("#bathroom_socket_6").val();
+    for (var i = 1; i < 7; i++) {
+      socket['bathroom_socket_'+i] = $("#bathroom_socket_"+[i]).val();
+    }
     socket.bathroom_light = $("#bathroom_light").val();
     socket.dimer = $("#dimer").val();
 
@@ -33,27 +28,13 @@ function send()
 function send_all_on()
 {
     var socket = {};
-    $('#bathroom_socket_1').val(1);
-    $('#bathroom_socket_2').val(1);
-    $('#bathroom_socket_3').val(1);
-    $('#bathroom_socket_4').val(1);
-    $('#bathroom_socket_5').val(1);
-    $('#bathroom_socket_6').val(1);
+    for (var i = 1; i < 7; i++) {
+      $("#bathroom_socket_"+[i]).val(1);
+      socket['bathroom_socket_'+i] = $("#bathroom_socket_"+[i]).val();
+      $("#bathroom_socket_"+[i]).bootstrapToggle('on');
+    }
     $("#bathroom_light").val(1);
-    socket.bathroom_socket_1 = $("#bathroom_socket_1").val();
-    socket.bathroom_socket_2 = $("#bathroom_socket_2").val();
-    socket.bathroom_socket_3 = $("#bathroom_socket_3").val();
-    socket.bathroom_socket_4 = $("#bathroom_socket_4").val();
-    socket.bathroom_socket_5 = $("#bathroom_socket_5").val();
-    socket.bathroom_socket_6 = $("#bathroom_socket_6").val();
     socket.bathroom_light = $("#bathroom_light").val();
-
-    $('#bathroom_socket_1').bootstrapToggle('on');
-    $('#bathroom_socket_2').bootstrapToggle('on');
-    $('#bathroom_socket_3').bootstrapToggle('on');
-    $('#bathroom_socket_4').bootstrapToggle('on');
-    $('#bathroom_socket_5').bootstrapToggle('on');
-    $('#bathroom_socket_6').bootstrapToggle('on');
     $('#bathroom_light').bootstrapToggle('on');
 
     $.ajax({
@@ -68,27 +49,13 @@ function send_all_on()
 function send_all_off()
 {
     var socket = {};
-    $('#bathroom_socket_1').val(0);
-    $('#bathroom_socket_2').val(0);
-    $('#bathroom_socket_3').val(0);
-    $('#bathroom_socket_4').val(0);
-    $('#bathroom_socket_5').val(0);
-    $('#bathroom_socket_6').val(0);
+    for (var i = 1; i < 7; i++) {
+      $("#bathroom_socket_"+[i]).val(0);
+      socket['bathroo_socket_'+i] = $("#bathroom_socket_"+[i]).val();
+      $("#bathroom_socket_"+[i]).bootstrapToggle('off');
+    }
     $("#bathroom_light").val(0);
-    socket.bathroom_socket_1 = $("#bathroom_socket_1").val();
-    socket.bathroom_socket_2 = $("#bathroom_socket_2").val();
-    socket.bathroom_socket_3 = $("#bathroom_socket_3").val();
-    socket.bathroom_socket_4 = $("#bathroom_socket_4").val();
-    socket.bathroom_socket_5 = $("#bathroom_socket_5").val();
-    socket.bathroom_socket_6 = $("#bathroom_socket_6").val();
     socket.bathroom_light = $("#bathroom_light").val();
-
-    $('#bathroom_socket_1').bootstrapToggle('off');
-    $('#bathroom_socket_2').bootstrapToggle('off');
-    $('#bathroom_socket_3').bootstrapToggle('off');
-    $('#bathroom_socket_4').bootstrapToggle('off');
-    $('#bathroom_socket_5').bootstrapToggle('off');
-    $('#bathroom_socket_6').bootstrapToggle('off');
     $('#bathroom_light').bootstrapToggle('off');
     $.ajax({
     type: 'POST',
@@ -106,12 +73,9 @@ $(document).ready(function(){
   success: function(json_button){
     var data = JSON.parse(json_button);
 
-    if(data.bathroom_socket_1 == 1){$('#bathroom_socket_1').bootstrapToggle('on'); $('#bathroom_socket_1').val(1);}
-    if(data.bathroom_socket_2 == 1){$('#bathroom_socket_2').bootstrapToggle('on'); $('#bathroom_socket_2').val(1);}
-    if(data.bathroom_socket_3 == 1){$('#bathroom_socket_3').bootstrapToggle('on'); $('#bathroom_socket_3').val(1);}
-    if(data.bathroom_socket_4 == 1){$('#bathroom_socket_4').bootstrapToggle('on'); $('#bathroom_socket_4').val(1);}
-    if(data.bathroom_socket_5 == 1){$('#bathroom_socket_5').bootstrapToggle('on'); $('#bathroom_socket_5').val(1);}
-    if(data.bathroom_socket_6 == 1){$('#bathroom_socket_6').bootstrapToggle('on'); $('#bathroom_socket_6').val(1);}
+    for (var i = 1; i < 7; i++) {
+      if(data['bathroom_socket_'+i] == 1){$("#bathroom_socket_"+[i]).val(1); $("#bathroom_socket_"+[i]).bootstrapToggle('on');}
+    }
     if(data.bathroom_light == 1){$('#bathroom_light').bootstrapToggle('on'); $('#bathroom_light').val(1);}
     document.getElementById("dimer").value = data.dimer;
 
@@ -139,26 +103,13 @@ function show()
   cache: false,
   success: function(json){
     var data = JSON.parse(json);
-    $('#ba_temp_1').text(data.bathroom_socket_1);
-    $('#ba_temp_2').text(data.bathroom_socket_2);
-    $('#ba_temp_3').text(data.bathroom_socket_3);
-    $('#ba_temp_4').text(data.bathroom_socket_4);
-    $('#ba_temp_5').text(data.bathroom_socket_5);
-    $('#ba_temp_6').text(data.bathroom_socket_6);
-    $('#ba_stan_1').html(data.ba_s_1);
-    $('#ba_stan_2').html(data.ba_s_2);
-    $('#ba_stan_3').html(data.ba_s_3);
-    $('#ba_stan_4').html(data.ba_s_4);
-    $('#ba_stan_5').html(data.ba_s_5);
-    $('#ba_stan_6').html(data.ba_s_6);
+    for (var i = 1; i < 7; i++) {
+      $("#ba_temp_"+[i]).text(data['bathroom_socket_'+i]);
+      $("#ba_stan_"+[i]).html(data['ba_s_'+i]);
+      $("#ba_conn_"+[i]).html(data['c_s_'+i]);
+    }
     $('#ba_stan_l').html(data.ba_l);
 
-    $('#ba_conn_1').html(data.c_s_1);
-    $('#ba_conn_2').html(data.c_s_2);
-    $('#ba_conn_3').html(data.c_s_3);
-    $('#ba_conn_4').html(data.c_s_4);
-    $('#ba_conn_5').html(data.c_s_5);
-    $('#ba_conn_6').html(data.c_s_6);
   }
   });
 }
@@ -213,19 +164,15 @@ function name()
   cache: false,
   success: function(json_n){
     var data = JSON.parse(json_n);
-    $('#name_bathroom_1').text(data.ba_s_1);
-    $('#name_bathroom_2').text(data.ba_s_2);
-    $('#name_bathroom_3').text(data.ba_s_3);
-    $('#name_bathroom_4').text(data.ba_s_4);
-    $('#name_bathroom_5').text(data.ba_s_5);
-    $('#name_bathroom_6').text(data.ba_s_6);
+    for (var i = 1; i < 7; i++) {
+      $("#name_bathroom_"+[i]).text(data['ba_s_'+i]);
+    }
   }
   });
 }
 
 $(document).ready(function(){
     show();
-    //pol();
     name();
     setInterval('show()',1000);
 });
@@ -246,6 +193,5 @@ function toBottom()
 function close_colapse()
 {
   scroll = 0;
-  //setTimeout('$(window).scrollTop(40)', 500);
   $('#chart').collapse('hide');
 }

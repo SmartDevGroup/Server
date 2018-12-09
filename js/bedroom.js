@@ -4,8 +4,6 @@ $(function() {
       $(this).val($(this).prop('checked')?1:0);
       send();
     })
-
-
 })
 
 function send()
@@ -175,7 +173,6 @@ function name()
 $(document).ready(function(){
     show();
     name();
-    //pol();
     setInterval('show()',1000);
 });
 
@@ -195,6 +192,5 @@ function toBottom()
 function close_colapse()
 {
   scroll = 0;
-  //setTimeout('$(window).scrollTop(40)', 500);
   $('#chart').collapse('hide');
 }
