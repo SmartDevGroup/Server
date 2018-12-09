@@ -58,7 +58,7 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
                       <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle text-center"><i class="fas fa-home"></i> Home</a>
                         <ul class="collapse list-unstyled" id="homeSubmenu">
                           <li>
-                              <a href="#"><i class="fas fa-bed"></i> Bedroom</a>
+                              <a href="bedroom.php"><i class="fas fa-bed"></i> Bedroom</a>
                           </li>
                           <li>
                               <a href="kitchen.php"><i class="fas fa-utensils"></i>  Kitchen</a>
@@ -72,6 +72,7 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
                       </ul>
                   </li>
                   <li>
+                    <a class="text-center" href="#"><i class="fas fa-user-circle"></i> Profile</a>
                     <a class="text-center" href="settings.php"><i class="fas fa-cog"></i> Settings</a>
                   </li>
                 </ul>

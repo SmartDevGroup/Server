@@ -69,6 +69,7 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
                       </ul>
                   </li>
                   <li>
+                      <a class="text-center" href="profile.php"><i class="fas fa-user-circle"></i> Profile</a>
                       <a class="text-center" href="settings.php"><i class="fas fa-cog"></i> Settings</a>
                   </li>
                 </ul>

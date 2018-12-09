@@ -14,15 +14,23 @@ $link=mysqli_connect("localhost", "root", "123", "server");
 
 if(empty($from) || empty($to))
 {
-  $res = mysqli_query($link, "SELECT * FROM temp WHERE (date BETWEEN '$date_from' AND '$date_to') AND api_key='$get_key'");
+  $res = mysqli_query($link, "SELECT * FROM temp WHERE date < NOW()  AND api_key='$get_key'");
 }
 else {
-  if ($from == "dd-mm-yy" || $to == "dd-mm-yy") {
+  if ($from == "dd-mm-yy" && $to == "dd-mm-yy" || $from == "" && $to =="") {
     $res = mysqli_query($link, "SELECT * FROM temp WHERE date < NOW()  AND api_key='$get_key'");
   }
   else {
-    $res = mysqli_query($link, "SELECT * FROM temp WHERE (date BETWEEN '$date_from' AND '$date_to') AND api_key='$get_key'");
+    if($from == "dd-mm-yy" || $from == "")
+    {
+      $res = mysqli_query($link, "SELECT * FROM temp WHERE date <= '$date_to' AND api_key='$get_key'");
+    }
+    else {
+      $res = mysqli_query($link, "SELECT * FROM temp WHERE (date BETWEEN '$date_from' AND '$date_to') AND api_key='$get_key'");
+    }
+
   }
+
 }
 
 
