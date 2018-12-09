@@ -12,12 +12,19 @@ $date_from = gmdate("Y-n-j", strtotime($from) + date("Z"));
 $date_to = gmdate("Y-n-j", strtotime($to.'+1 day') + date("Z"));
 $link=mysqli_connect("localhost", "root", "123", "server");
 
-if ($from == "dd-mm-yy" && $to == "dd-mm-yy") {
-  $res = mysqli_query($link, "SELECT * FROM temp WHERE date < NOW()  AND api_key='$get_key'");
-}
-else {
+if(empty($from) || empty($to))
+{
   $res = mysqli_query($link, "SELECT * FROM temp WHERE (date BETWEEN '$date_from' AND '$date_to') AND api_key='$get_key'");
 }
+else {
+  if ($from == "dd-mm-yy" || $to == "dd-mm-yy") {
+    $res = mysqli_query($link, "SELECT * FROM temp WHERE date < NOW()  AND api_key='$get_key'");
+  }
+  else {
+    $res = mysqli_query($link, "SELECT * FROM temp WHERE (date BETWEEN '$date_from' AND '$date_to') AND api_key='$get_key'");
+  }
+}
+
 
 $a = 1;
 $b = 0;

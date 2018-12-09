@@ -1,5 +1,5 @@
 <?php
-header("Refresh: 10");
+header("Refresh: 120");
 $get_key = $_GET['api'];
 $link=mysqli_connect("localhost", "root", "123", "server");
 

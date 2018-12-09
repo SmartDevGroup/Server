@@ -102,13 +102,10 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
                   </div>
                 </nav>
                 <div class="row ">
-                  <div class="col-lg-6">
+                  <div class="col-lg-12">
                     <button class="btn btn-primary text-center" type="button" style="width: 80%;"  data-toggle="collapse" data-target="#settings" aria-expanded="false" aria-controls="chart">Settings</button>
                   </div>
-                  <div class="col-lg-6">
-                    <button class="btn btn-primary text-center" type="button" style="width: 80%;"  data-toggle="collapse" data-target="#chart" aria-expanded="false" aria-controls="chart" onclick="rend();">Show chart</button>
-                  </div>
-                  <div class="col-lg-6 col-md-12 col-sm-12 text-center">
+                  <div class="col-lg-12 col-md-12 col-sm-12 text-center">
                     <br>
                     <div class="collapse" id="settings">
                       <div class="card text-dark bg-light">

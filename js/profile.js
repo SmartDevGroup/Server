@@ -1,10 +1,24 @@
+function addZero(num) {
+  var str = num.toString();
+  return str.length == 1? "0" + str : str;
+}
+
 function rend()
 {
+  $("#chart").collapse('show');
   var date = {};
   date1 = $("#from").val();
   date2 = $("#to").val();
   date.from = date1;
   date.to = date2;
+  if(date2 == "dd-mm-yy" || date2 == "")
+  {
+    date_t = new Date;
+    today = addZero(date_t.getDate())+"-"+(date_t.getMonth()+1)+"-"+date_t.getFullYear();
+    $("#to").val(today);
+  }
+
+
   $.ajax({
   type: 'POST',
   url: 'chart/chart.php',
@@ -16,7 +30,7 @@ function rend()
     var chart = new CanvasJS.Chart("chartContainer1", {
       animationEnabled: true,
       title:{
-        text: "Daily Temperature in Bedroom"
+        text: "Bedroom"
       },
       axisY: {
         title: "Average Temp",
@@ -36,7 +50,7 @@ function rend()
     var chart2 = new CanvasJS.Chart("chartContainer2", {
       animationEnabled: true,
       title:{
-        text: "Daily Temperature in Kitchen"
+        text: "Kitchen"
       },
       axisY: {
         title: "Average Temp",
@@ -57,7 +71,7 @@ function rend()
     var chart3 = new CanvasJS.Chart("chartContainer3", {
       animationEnabled: true,
       title:{
-        text: "Daily Temperature in Bathroom"
+        text: "Bathroom"
       },
       axisY: {
         title: "Average Temp",
@@ -78,7 +92,7 @@ function rend()
     var chart4 = new CanvasJS.Chart("chartContainer4", {
       animationEnabled: true,
       title:{
-        text: "Daily Temperature in Living room"
+        text: "Living room"
       },
       axisY: {
         title: "Average Temp",
