@@ -10,7 +10,7 @@ $count_bathroom = 0;
 for ($i=1; $i < 7; $i++) {
   $array["ba_$i"] = $bathroom["bathroom_socket_$i"];
 }
-for ($i=1; $i < 7; $i++) {
+for ($i=1; $i <= $max_bathroom; $i++) {
   $count_bathroom += $array["ba_$i"];
 }
 if($max_bathroom == $count_bathroom)
@@ -39,9 +39,10 @@ $count_bedroom = 0;
 for ($i=1; $i < 7; $i++) {
   $array["b_$i"] = $bedroom["bedroom_socket_$i"];
 }
-for ($i=1; $i < 7; $i++) {
+for ($i=1; $i <= $max_bedroom; $i++) {
   $count_bedroom += $array["b_$i"];
 }
+//echo $count_bedroom."".$max_bedroom;
 if($max_bedroom == $count_bedroom)
 {
   $b_stan ="<h3 class=' text-success'>All ON</h3>";
@@ -68,7 +69,7 @@ $count_kitchen = 0;
 for ($i=1; $i < 7; $i++) {
   $array["k_$i"] = $kitchen["kitchen_socket_$i"];
 }
-for ($i=1; $i < 7; $i++) {
+for ($i=1; $i <= $max_kitchen; $i++) {
   $count_kitchen += $array["k_$i"];
 }
 if($max_kitchen == $count_kitchen)
@@ -97,7 +98,7 @@ $count_home = 0;
 for ($i=1; $i < 7; $i++) {
   $array["h_$i"] = $home["home_socket_$i"];
 }
-for ($i=1; $i < 7; $i++) {
+for ($i=1; $i <= $max_home; $i++) {
   $count_home += $array["h_$i"];
 }
 if($max_home == $count_home)
