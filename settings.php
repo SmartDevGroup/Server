@@ -350,7 +350,6 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
                               <thead>
                                 <tr>
                                   <th scope="col">#</th>
-                                  <th scope="col">ID</th>
                                   <th scope="col" class="w-25">ID</th>
                                   <th scope="col" class="w-25">Name</th>
                                   <th scope="col">Status</th>

@@ -51,7 +51,7 @@ if($Sum == 2)
 }
 if($Sum == 1)
 {
-  $arr["l_stat_$i"] = "<h3 class='on text-success'>Enabled</h3>";
+  $arr["l_stat_1"] = "<h3 class='on text-success'>Enabled</h3>";
   for ($i=2; $i < 7; $i++) {
     $arr["l_stat_$i"] = "<h3 class='off text-danger'>Disabled</h3>";
   }
