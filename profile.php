@@ -114,8 +114,18 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
                       <div class="card text-dark bg-light">
                         <div class="card-body text-center">
                           <h5 class="card-title text-center ">Chart Settings</h5>
-                          <input >
-                          <button class="btn btn-outline-primary" type="button" style="width: 20%;" onclick="close_colapse()">Close</button>
+                          <div class="input-group">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="">Show from: </span>
+                            </div>
+                            <input type="text" id="from" class="form-control text-center" value="dd-mm-yy"  onclick="event.cancelBubble=true;this.select();lcs(this)">
+                            <div class="input-group-append">
+                              <span class="input-group-text">To: </span>
+                            </div>
+                            <input type="text" id="to" class="form-control text-center" value="dd-mm-yy"  onclick="event.cancelBubble=true;this.select();lcs(this)">
+                          </div>
+                          <br>
+                          <button class="btn btn-outline-primary" type="button" style="width: 20%;" onclick="rend()">Enable</button>
                         </div>
                       </div>
                     </div>
@@ -159,8 +169,6 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
                 $(this).toggleClass('active');
             });
             myFunction();
-            //alert(window.screen.availHeight);
-            //alert(window.screen.availWidth);
             date_time('date_time');
         });
 
@@ -203,103 +211,8 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
                 return true;
         }
     </script>
-    <script>
-    function rend()
-    {
-      $.ajax({
-      url: 'chart/chart.php',
-      cache: false,
-      success: function(json){
-        var data = JSON.parse(json);
-        var data1 = data;
-
-        var chart = new CanvasJS.Chart("chartContainer1", {
-        	animationEnabled: true,
-        	title:{
-        		text: "Daily Temperature in Bedroom"
-        	},
-        	axisY: {
-        		title: "Average Temp",
-        		suffix: "C"
-        	},
-        	data: [{
-        		type: "area",
-        		markerSize: 5,
-        		xValueFormatString: "YYYY-MM-DD hh:mm:ss TT",
-        		yValueFormatString: "#,##0.## C",
-        		xValueType: "dateTime",
-        		dataPoints: data
-        	}]
-        });
-        chart.render();
-
-        var chart2 = new CanvasJS.Chart("chartContainer2", {
-        	animationEnabled: true,
-        	title:{
-        		text: "Daily Temperature in Kitchen"
-        	},
-        	axisY: {
-        		title: "Average Temp",
-        		suffix: "C"
-        	},
-        	data: [{
-        		type: "area",
-        		markerSize: 5,
-            color: "red",
-        		xValueFormatString: "YYYY-MM-DD hh:mm:ss TT",
-        		yValueFormatString: "#,##0.## C",
-        		xValueType: "dateTime",
-        		dataPoints: data
-        	}]
-        });
-        chart2.render();
-
-        var chart3 = new CanvasJS.Chart("chartContainer3", {
-        	animationEnabled: true,
-        	title:{
-        		text: "Daily Temperature in Bathroom"
-        	},
-        	axisY: {
-        		title: "Average Temp",
-        		suffix: "C"
-        	},
-        	data: [{
-        		type: "area",
-        		markerSize: 5,
-            color: "green",
-        		xValueFormatString: "YYYY-MM-DD hh:mm:ss TT",
-        		yValueFormatString: "#,##0.## C",
-        		xValueType: "dateTime",
-        		dataPoints: data
-        	}]
-        });
-        chart3.render();
-
-        var chart4 = new CanvasJS.Chart("chartContainer4", {
-        	animationEnabled: true,
-        	title:{
-        		text: "Daily Temperature in Living room"
-        	},
-        	axisY: {
-        		title: "Average Temp",
-        		suffix: "C"
-        	},
-        	data: [{
-        		type: "area",
-        		markerSize: 5,
-            color: "blue",
-        		xValueFormatString: "YYYY-MM-DD hh:mm:ss TT",
-        		yValueFormatString: "#,##0.## C",
-        		xValueType: "dateTime",
-        		dataPoints: data
-        	}]
-        });
-        chart4.render();
-      }
-      });
-    }
-    </script>
-
+    <script src="js/profile.js"></script>
+    <script src="js/calendar.js"></script>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
   </body>
 </html>
