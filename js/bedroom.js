@@ -14,14 +14,6 @@ function send()
     for (var i = 1; i < 7; i++) {
       socket['bedroom_socket_'+i] = $("#bedroom_socket_"+[i]).val();
     }
-    /*
-    socket.bedroom_socket_1 = $("#bedroom_socket_1").val();
-    socket.bedroom_socket_2 = $("#bedroom_socket_2").val();
-    socket.bedroom_socket_3 = $("#bedroom_socket_3").val();
-    socket.bedroom_socket_4 = $("#bedroom_socket_4").val();
-    socket.bedroom_socket_5 = $("#bedroom_socket_5").val();
-    socket.bedroom_socket_6 = $("#bedroom_socket_6").val();
-    */
     socket.bedroom_light = $("#bedroom_light").val();
     socket.dimer = $("#dimer").val();
 
@@ -37,27 +29,13 @@ function send()
 function send_all_on()
 {
     var socket = {};
-    $('#bedroom_socket_1').val(1);
-    $('#bedroom_socket_2').val(1);
-    $('#bedroom_socket_3').val(1);
-    $('#bedroom_socket_4').val(1);
-    $('#bedroom_socket_5').val(1);
-    $('#bedroom_socket_6').val(1);
+    for (var i = 1; i < 7; i++) {
+      $("#bedroom_socket_"+[i]).val(1);
+      socket['bedroom_socket_'+i] = $("#bedroom_socket_"+[i]).val();
+      $("#bedroom_socket_"+[i]).bootstrapToggle('on');
+    }
     $("#bedroom_light").val(1);
-    socket.bedroom_socket_1 = $("#bedroom_socket_1").val();
-    socket.bedroom_socket_2 = $("#bedroom_socket_2").val();
-    socket.bedroom_socket_3 = $("#bedroom_socket_3").val();
-    socket.bedroom_socket_4 = $("#bedroom_socket_4").val();
-    socket.bedroom_socket_5 = $("#bedroom_socket_5").val();
-    socket.bedroom_socket_6 = $("#bedroom_socket_6").val();
     socket.bedroom_light = $("#bedroom_light").val();
-
-    $('#bedroom_socket_1').bootstrapToggle('on');
-    $('#bedroom_socket_2').bootstrapToggle('on');
-    $('#bedroom_socket_3').bootstrapToggle('on');
-    $('#bedroom_socket_4').bootstrapToggle('on');
-    $('#bedroom_socket_5').bootstrapToggle('on');
-    $('#bedroom_socket_6').bootstrapToggle('on');
     $('#bedroom_light').bootstrapToggle('on');
 
     $.ajax({
@@ -71,29 +49,16 @@ function send_all_on()
 
 function send_all_off()
 {
-    var socket = {};
-    $('#bedroom_socket_1').val(0);
-    $('#bedroom_socket_2').val(0);
-    $('#bedroom_socket_3').val(0);
-    $('#bedroom_socket_4').val(0);
-    $('#bedroom_socket_5').val(0);
-    $('#bedroom_socket_6').val(0);
-    $("#bedroom_light").val(0);
-    socket.bedroom_socket_1 = $("#bedroom_socket_1").val();
-    socket.bedroom_socket_2 = $("#bedroom_socket_2").val();
-    socket.bedroom_socket_3 = $("#bedroom_socket_3").val();
-    socket.bedroom_socket_4 = $("#bedroom_socket_4").val();
-    socket.bedroom_socket_5 = $("#bedroom_socket_5").val();
-    socket.bedroom_socket_6 = $("#bedroom_socket_6").val();
-    socket.bedroom_light = $("#bedroom_light").val();
+  var socket = {};
+  for (var i = 1; i < 7; i++) {
+    $("#bedroom_socket_"+[i]).val(0);
+    socket['bedroom_socket_'+i] = $("#bedroom_socket_"+[i]).val();
+    $("#bedroom_socket_"+[i]).bootstrapToggle('off');
+  }
+  $("#bedroom_light").val(0);
+  socket.bedroom_light = $("#bedroom_light").val();
+  $('#bedroom_light').bootstrapToggle('off');
 
-    $('#bedroom_socket_1').bootstrapToggle('off');
-    $('#bedroom_socket_2').bootstrapToggle('off');
-    $('#bedroom_socket_3').bootstrapToggle('off');
-    $('#bedroom_socket_4').bootstrapToggle('off');
-    $('#bedroom_socket_5').bootstrapToggle('off');
-    $('#bedroom_socket_6').bootstrapToggle('off');
-    $('#bedroom_light').bootstrapToggle('off');
     $.ajax({
     type: 'POST',
     url: 'transfer/transfer_bedroom.php',
@@ -110,14 +75,11 @@ $(document).ready(function(){
   success: function(json_button){
     var data = JSON.parse(json_button);
 
-    if(data.bedroom_socket_1 == 1){$('#bedroom_socket_1').bootstrapToggle('on'); $('#bedroom_socket_1').val(1);}
-    if(data.bedroom_socket_2 == 1){$('#bedroom_socket_2').bootstrapToggle('on'); $('#bedroom_socket_2').val(1);}
-    if(data.bedroom_socket_3 == 1){$('#bedroom_socket_3').bootstrapToggle('on'); $('#bedroom_socket_3').val(1);}
-    if(data.bedroom_socket_4 == 1){$('#bedroom_socket_4').bootstrapToggle('on'); $('#bedroom_socket_4').val(1);}
-    if(data.bedroom_socket_5 == 1){$('#bedroom_socket_5').bootstrapToggle('on'); $('#bedroom_socket_5').val(1);}
-    if(data.bedroom_socket_6 == 1){$('#bedroom_socket_6').bootstrapToggle('on'); $('#bedroom_socket_6').val(1);}
+    for (var i = 1; i < 7; i++) {
+      if(data['bedroom_socket_'+i] == 1){$("#bedroom_socket_"+[i]).val(1); $("#bedroom_socket_"+[i]).bootstrapToggle('on');}
+    }
     if(data.bedroom_light == 1){$('#bedroom_light').bootstrapToggle('on'); $('#bedroom_light').val(1);}
-    document.getElementById("dimer").value = data.dimer;
+    $('#dimer').val(data.dimer);
 
     var slider = document.getElementById("dimer");
     var output = document.getElementById("value_scroll");
@@ -143,26 +105,12 @@ function show()
   cache: false,
   success: function(json){
     var data = JSON.parse(json);
-    $('#b_temp_1').text(data.bedroom_socket_1);
-    $('#b_temp_2').text(data.bedroom_socket_2);
-    $('#b_temp_3').text(data.bedroom_socket_3);
-    $('#b_temp_4').text(data.bedroom_socket_4);
-    $('#b_temp_5').text(data.bedroom_socket_5);
-    $('#b_temp_6').text(data.bedroom_socket_6);
-    $('#b_stan_1').html(data.b_s_1);
-    $('#b_stan_2').html(data.b_s_2);
-    $('#b_stan_3').html(data.b_s_3);
-    $('#b_stan_4').html(data.b_s_4);
-    $('#b_stan_5').html(data.b_s_5);
-    $('#b_stan_6').html(data.b_s_6);
+    for (var i = 1; i < 7; i++) {
+      $("#b_temp_"+[i]).text(data['bedroom_socket_'+i]);
+      $("#b_stan_"+[i]).html(data['b_s_'+i]);
+      $("#b_conn_"+[i]).html(data['c_s_'+i]);
+    }
     $('#b_stan_l').html(data.b_l);
-
-    $('#b_conn_1').html(data.c_s_1);
-    $('#b_conn_2').html(data.c_s_2);
-    $('#b_conn_3').html(data.c_s_3);
-    $('#b_conn_4').html(data.c_s_4);
-    $('#b_conn_5').html(data.c_s_5);
-    $('#b_conn_6').html(data.c_s_6);
   }
   });
 }
@@ -217,12 +165,9 @@ function name()
   cache: false,
   success: function(json_n){
     var data = JSON.parse(json_n);
-    $('#name_bedroom_1').text(data.b_s_1);
-    $('#name_bedroom_2').text(data.b_s_2);
-    $('#name_bedroom_3').text(data.b_s_3);
-    $('#name_bedroom_4').text(data.b_s_4);
-    $('#name_bedroom_5').text(data.b_s_5);
-    $('#name_bedroom_6').text(data.b_s_6);
+    for (var i = 1; i < 7; i++) {
+      $("#name_bedroom_"+[i]).text(data['b_s_'+i]);
+    }
   }
   });
 }
