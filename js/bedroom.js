@@ -107,6 +107,9 @@ function show()
       $("#b_temp_"+[i]).text(data['bedroom_socket_'+i]);
       $("#b_stan_"+[i]).html(data['b_s_'+i]);
       $("#b_conn_"+[i]).html(data['c_s_'+i]);
+      if(data['s_'+i] == 1){if($("#bedroom_socket_"+[i]).val() == 0){$("#bedroom_socket_"+[i]).bootstrapToggle('on');}}
+      if(data['s_'+i] == 0){if($("#bedroom_socket_"+[i]).val() == 1){$("#bedroom_socket_"+[i]).bootstrapToggle('off');}}
+
     }
     $('#b_stan_l').html(data.b_l);
   }
