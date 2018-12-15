@@ -61,16 +61,17 @@ if($data_db == 1)
   6 => array("id" => $id_bedroom['id_b_6'],"room" => "bedroom","group" => "socket","name" => "$name_b_6","value" => $bed_stat_6,"temp" => $status_data_bedroom['b_temp_sock_6']),
 
   7 => array("id" => $id_kitchen['id_k_1'],"room" => "kitchen","group" => "socket","name" => $name_k_1,"value" => $kit_stat_1,"temp" => $status_data_kitchen['k_temp_sock_1']),
-  8 => array("id" => $id_kitchen['id_k_2'],"room" => "kitchen","group" => "socket","name" => $name_k_2,"value" => $kit_stat_2,"temp" => $status_data_kitchen['k_temp_sock_1']),
-  10 => array("id" => $id_kitchen['id_k_4'],"room" => "kitchen","group" => "socket","name" => $name_k_4,"value" => $kit_stat_4,"temp" => $status_data_kitchen['k_temp_sock_1']),
-  11 => array("id" => $id_kitchen['id_k_5'],"room" => "kitchen","group" => "socket","name" => $name_k_5,"value" => $kit_stat_5,"temp" => $status_data_kitchen['k_temp_sock_1']),
-  12 => array("id" => $id_kitchen['id_k_6'],"room" => "kitchen","group" => "socket","name" => $name_k_6,"value" => $kit_stat_6,"temp" => $status_data_kitchen['k_temp_sock_1'])
+  8 => array("id" => $id_kitchen['id_k_2'],"room" => "kitchen","group" => "socket","name" => $name_k_2,"value" => $kit_stat_2,"temp" => $status_data_kitchen['k_temp_sock_2']),
+  9 => array("id" => $id_kitchen['id_k_3'],"room" => "kitchen","group" => "socket","name" => $name_k_3,"value" => $kit_stat_3,"temp" => $status_data_kitchen['k_temp_sock_3']),
+  10 => array("id" => $id_kitchen['id_k_4'],"room" => "kitchen","group" => "socket","name" => $name_k_4,"value" => $kit_stat_4,"temp" => $status_data_kitchen['k_temp_sock_4']),
+  11 => array("id" => $id_kitchen['id_k_5'],"room" => "kitchen","group" => "socket","name" => $name_k_5,"value" => $kit_stat_5,"temp" => $status_data_kitchen['k_temp_sock_5']),
+  12 => array("id" => $id_kitchen['id_k_6'],"room" => "kitchen","group" => "socket","name" => $name_k_6,"value" => $kit_stat_6,"temp" => $status_data_kitchen['k_temp_sock_6'])
   );
 
   $json = json_encode($data);
   echo $json;
 }
 else {
-  
+
 }
 ?>
