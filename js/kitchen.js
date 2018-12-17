@@ -106,6 +106,9 @@ function show()
       $("#k_temp_"+[i]).text(data['kitchen_socket_'+i]);
       $("#k_stan_"+[i]).html(data['k_s_'+i]);
       $("#k_conn_"+[i]).html(data['c_s_'+i]);
+      if(data['s_'+i] == 1){if($("#kitchen_socket_"+[i]).val() == 0){$("#kitchen_socket_"+[i]).bootstrapToggle('on');}}
+      if(data['s_'+i] == 0){if($("#kitchen_socket_"+[i]).val() == 1){$("#kitchen_socket_"+[i]).bootstrapToggle('off');}}
+
     }
     $('#k_stan_l').html(data.k_l);
   }
@@ -159,7 +162,7 @@ xmlhttp.send();
 $(document).ready(function(){
     show();
     name();
-    setInterval('show()',1000);
+    setInterval('show()',1500);
 });
 
 function name()

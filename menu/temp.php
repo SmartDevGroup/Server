@@ -1,11 +1,11 @@
 <?php
 session_start();
-$get_key = "123456789";//$_SESSION['api'];
+$get_key = $_SESSION['api']; //"123456789";//$_SESSION['api'];
 $link=mysqli_connect("localhost", "root", "123", "server");
 
 $data_bedroom = mysqli_query($link, "SELECT * FROM bedroom WHERE api_key='$get_key'");
 $bedroom = mysqli_fetch_assoc($data_bedroom);
-$max_bedroom = $bedroom['Sum'];
+$max_bedroom = 6;
 $max_bedroom_temp = 0;
 for ($i=1; $i < 7; $i++) {
   $array["b_$i"] = $bedroom["b_temp_sock_$i"];
@@ -25,7 +25,7 @@ else {
 
 $data_kitchen = mysqli_query($link, "SELECT * FROM kitchen WHERE api_key='$get_key'");
 $kitchen = mysqli_fetch_assoc($data_kitchen);
-$max_kitchen = $kitchen['Sum'];
+$max_kitchen = 6;
 $max_kitchen_temp = 0;
 for ($i=1; $i < 7; $i++) {
   $array["k_$i"] = $kitchen["k_temp_sock_$i"];
@@ -45,7 +45,7 @@ else {
 
 $data_bathroom = mysqli_query($link, "SELECT * FROM bathroom WHERE api_key='$get_key'");
 $bathroom = mysqli_fetch_assoc($data_bathroom);
-$max_bathroom = $bathroom['Sum'];
+$max_bathroom = 6;
 $max_bathroom_temp = 0;
 for ($i=1; $i < 7; $i++) {
   $array["ba_$i"] = $bathroom["ba_temp_sock_$i"];
@@ -65,7 +65,7 @@ else {
 
 $data_livingroom = mysqli_query($link, "SELECT * FROM livingroom  WHERE api_key='$get_key'");
 $livingroom  = mysqli_fetch_assoc($data_livingroom);
-$max_livingroom = $livingroom['Sum'];
+$max_livingroom = 6;
 $max_livingroom_temp = 0;
 for ($i=1; $i < 7; $i++) {
   $array["h_$i"] = $livingroom["h_temp_sock_$i"];

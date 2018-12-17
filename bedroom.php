@@ -250,7 +250,7 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
         sum = data.sum;
         if(sum == 1){
           yValue1 = parseInt(data.b_s_1);
-          if(yValue1 == 0){yValue1 = "OFF";}
+          if(yValue1 == 0){yValue1 = "No Connection";}
           yValue2 = "Disabled";
           yValue3= "Disabled";
           yValue4 = "Disabled";
@@ -259,9 +259,9 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
         }
         if(sum == 2){
           yValue1 = parseInt(data.b_s_1);
-          if(yValue1 == 0){yValue1 = "OFF";}
+          if(yValue1 == 0){yValue1 = "No Connection";}
           yValue2 = parseInt(data.b_s_2);
-          if(yValue2 == 0){yValue2 = "OFF";}
+          if(yValue2 == 0){yValue2 = "No Connection";}
           yValue3= "Disabled";
           yValue4 = "Disabled";
           yValue5 = "Disabled";
@@ -269,53 +269,53 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
         }
         if(sum == 3){
           yValue1 = parseInt(data.b_s_1);
-          if(yValue1 == 0){yValue1 = "OFF";}
+          if(yValue1 == 0){yValue1 = "No Connection";}
           yValue2 = parseInt(data.b_s_2);
-          if(yValue2 == 0){yValue2 = "OFF";}
+          if(yValue2 == 0){yValue2 = "No Connection";}
           yValue3= parseInt(data.b_s_3);
-          if(yValue3 == 0){yValue3 = "OFF";}
+          if(yValue3 == 0){yValue3 = "No Connection";}
           yValue4 = "Disabled";
           yValue5 = "Disabled";
           yValue6 = "Disabled";
         }
         if(sum == 4){
           yValue1 = parseInt(data.b_s_1);
-          if(yValue1 == 0){yValue1 = "OFF";}
+          if(yValue1 == 0){yValue1 = "No Connection";}
           yValue2 = parseInt(data.b_s_2);
-          if(yValue2 == 0){yValue2 = "OFF";}
+          if(yValue2 == 0){yValue2 = "No Connection";}
           yValue3= parseInt(data.b_s_3);
-          if(yValue3 == 0){yValue3 = "OFF";}
+          if(yValue3 == 0){yValue3 = "No Connection";}
           yValue4 = parseInt(data.b_s_4);
-          if(yValue4 == 0){yValue4 = "OFF";}
+          if(yValue4 == 0){yValue4 = "No Connection";}
           yValue5 = "Disabled";
           yValue6 = "Disabled";
         }
         if(sum == 5){
           yValue1 = parseInt(data.b_s_1);
-          if(yValue1 == 0){yValue1 = "OFF";}
+          if(yValue1 == 0){yValue1 = "No Connection";}
           yValue2 = parseInt(data.b_s_2);
-          if(yValue2 == 0){yValue2 = "OFF";}
+          if(yValue2 == 0){yValue2 = "No Connection";}
           yValue3= parseInt(data.b_s_3);
-          if(yValue3 == 0){yValue3 = "OFF";}
+          if(yValue3 == 0){yValue3 = "No Connection";}
           yValue4 = parseInt(data.b_s_4);
-          if(yValue4 == 0){yValue4 = "OFF";}
+          if(yValue4 == 0){yValue4 = "No Connection";}
           yValue5 = parseInt(data.b_s_5);
-          if(yValue5 == 0){yValue5 = "OFF";}
+          if(yValue5 == 0){yValue5 = "No Connection";}
           yValue6 = "Disabled";
         }
         if(sum == 6){
           yValue1 = parseInt(data.b_s_1);
           if(yValue1 == 0){yValue1 = "No Connection";}
           yValue2 = parseInt(data.b_s_2);
-          if(yValue2 == 0){yValue2 = "OFF";}
+          if(yValue2 == 0){yValue2 = "No Connection";}
           yValue3= parseInt(data.b_s_3);
-          if(yValue3 == 0){yValue3 = "OFF";}
+          if(yValue3 == 0){yValue3 = "No Connection";}
           yValue4 = parseInt(data.b_s_4);
-          if(yValue4 == 0){yValue4 = "OFF";}
+          if(yValue4 == 0){yValue4 = "No Connection";}
           yValue5 = parseInt(data.b_s_5);
-          if(yValue5 == 0){yValue5 = "OFF";}
+          if(yValue5 == 0){yValue5 = "No Connection";}
           yValue6 = parseInt(data.b_s_6)
-          if(yValue6 == 0){yValue6 = "OFF";}
+          if(yValue6 == 0){yValue6 = "No Connection";}
         }
 
       }
