@@ -5,5 +5,6 @@ $link=mysqli_connect("localhost", "root", "123", "server");
 $mysql = mysqli_query($link,"SELECT * FROM bedroom WHERE api_key = '$api_key'");
 $bedroom = mysqli_fetch_assoc($mysql);
 
-echo $bedroom['b_temp_sock_1'];
+$array = array('bedroom_socket_1' => $bedroom['b_temp_sock_1']);
+echo $array;
  ?>
