@@ -37,7 +37,7 @@ $arr_date = explode("-", $str_date);
 $str_time = $time_bd;
 $arr_time = explode(":", $str_time);
 
-$maketime = mktime ($arr_time[0], $arr_time[1] + 10,  $arr_time[2], $arr_date[1], $arr_date[2], $arr_date[0]);
+$maketime = mktime ($arr_time[0], $arr_time[1] + 1,  $arr_time[2], $arr_date[1], $arr_date[2], $arr_date[0]);
 
 $real_date = date("Y-n-j G:i:s");
 $real_time_sec = strtotime($real_date);
