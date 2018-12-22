@@ -3,7 +3,7 @@
 $api_key = $_GET['api'];
 $temp = $_GET['temp'];
 
-$link=mysqli_connect("localhost", "root", "123", "server");
+$link=mysqli_connect("localhost", "root", "Rfdey123qw!", "server");
 
 //STATUS
 $db_status_bedroom = mysqli_query($link, "SELECT * FROM bedroom WHERE api_key='$api_key'");

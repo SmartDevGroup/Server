@@ -1,6 +1,6 @@
 <?php
 $get_key = $_GET['api'];
-$link=mysqli_connect("localhost", "root", "123", "server");
+$link=mysqli_connect("localhost", "root", "Rfdey123qw!", "server");
 
 $res = mysqli_query($link, "SELECT * FROM temp WHERE api_key = $get_key AND date < NOW()");
 $a = 1;

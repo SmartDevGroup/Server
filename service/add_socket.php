@@ -2,7 +2,7 @@
 $serial_socket = $_GET['serial'];
 $ip_socket = $_GET['ip'];
 
-$link=mysqli_connect("localhost", "root", "123", "server");
+$link=mysqli_connect("localhost", "root", "Rfdey123qw!", "server");
 $data= mysqli_query($link, "SELECT * FROM id");
 
 $id_array = array();

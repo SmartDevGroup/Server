@@ -4,7 +4,7 @@ if (isset($_POST['email'])) { $email = $_POST['email']; if ($email == '') { unse
 if (isset($_POST['password'])) { $password=$_POST['password']; if ($password =='') { unset($password);} }
 if (isset($_POST['login'])) { $login=$_POST['login']; if ($login =='') { unset($login);} }
 
-$link=mysqli_connect("localhost", "root", "123", "server");
+$link=mysqli_connect("localhost", "root", "Rfdey123qw!", "server");
 $email = stripslashes($email);
 $email = htmlspecialchars($email);
 $login = stripslashes($login);

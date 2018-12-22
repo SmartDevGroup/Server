@@ -23,7 +23,7 @@ if($living["home_light"] == "")
   $living["home_light"] = 0;
 }
 
-$link=mysqli_connect("localhost", "root", "123", "server");
+$link=mysqli_connect("localhost", "root", "Rfdey123qw!", "server");
 
 
 

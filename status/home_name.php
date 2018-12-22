@@ -3,7 +3,7 @@
 session_start();
 $get_key = $_SESSION['api'];
 
-$link=mysqli_connect("localhost", "root", "123", "server");
+$link=mysqli_connect("localhost", "root", "Rfdey123qw!", "server");
 
 $home = mysqli_query($link, "SELECT * FROM livingroom WHERE api_key='$get_key'");
 $data = mysqli_fetch_assoc($home);

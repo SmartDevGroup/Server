@@ -23,7 +23,7 @@ if($kitchen["kitchen_light"] == "")
   $kitchen["kitchen_light"] = 0;
 }
 
-$link=mysqli_connect("localhost", "root", "123", "server");
+$link=mysqli_connect("localhost", "root", "Rfdey123qw!", "server");
 
 
 //echo var_dump($kitchen);

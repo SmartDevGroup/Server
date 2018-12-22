@@ -1,6 +1,6 @@
 <?php
 
-$link=mysqli_connect("localhost", "root", "123", "server");
+$link=mysqli_connect("localhost", "root", "Rfdey123qw!", "server");
 
 $data= mysqli_query($link, "SELECT * FROM id");
 

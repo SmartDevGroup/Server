@@ -1,6 +1,6 @@
 <?php
 date_default_timezone_set('Europe/Kiev');
-$link=mysqli_connect("localhost", "root", "123", "server");
+$link=mysqli_connect("localhost", "root", "Rfdey123qw!", "server");
 $res = mysqli_query($link, "SELECT * FROM temp WHERE api_key='123456789' ORDER BY id DESC LIMIT 1 ");
 $db = mysqli_fetch_assoc($res);
 

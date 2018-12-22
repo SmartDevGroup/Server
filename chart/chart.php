@@ -10,7 +10,7 @@ date_default_timezone_set('Europe/Kiev');
 $lol = mktime (date("H"), date("i"), date("s") , date("n"), date("j") - 1, date("Y"))."  ";
 $date_from = gmdate("Y-n-j", strtotime($from) + date("Z"));
 $date_to = gmdate("Y-n-j", strtotime($to.'+1 day') + date("Z"));
-$link=mysqli_connect("localhost", "root", "123", "server");
+$link=mysqli_connect("localhost", "root", "Rfdey123qw!", "server");
 
 if(empty($from) || empty($to))
 {

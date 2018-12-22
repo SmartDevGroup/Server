@@ -97,6 +97,15 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
                         <h1 class=" "id="date_time"> </h1>
                       </div>
 
+                      <div class="dropdown">
+                        <button class="btn btn-info dropdown-toggle semi" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          News <span class="badge badge-light">4</span>
+                        </button>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                        </div>
+                      </div>
+
                   </div>
                 </nav>
                 <div class="row">

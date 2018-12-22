@@ -4,7 +4,7 @@ session_start();
 $get_key = $_SESSION['api'];
 $serial = $_POST['serial'];
 
-$link=mysqli_connect("localhost", "root", "123", "server");
+$link=mysqli_connect("localhost", "root", "Rfdey123qw!", "server");
 
 $result = mysqli_query($link, "SELECT 1 FROM brain WHERE serial LIKE '%".$serial."%'");
 if ($result->num_rows > 0)

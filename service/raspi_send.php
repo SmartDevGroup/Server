@@ -1,6 +1,6 @@
 <?php
 $data = json_decode(file_get_contents('php://input'), true);
-$link=mysqli_connect("localhost", "root", "123", "server");
+$link=mysqli_connect("localhost", "root", "Rfdey123qw!", "server");
 date_default_timezone_set('Europe/Kiev');
 $get_key = $data["user"];
 

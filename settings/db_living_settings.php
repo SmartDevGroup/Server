@@ -9,7 +9,7 @@ for ($i=1; $i < 7; $i++) {
   $arr["name_$i"] = $_POST["name_l_$i"];
 }
 
-$link=mysqli_connect("localhost", "root", "123", "server");
+$link=mysqli_connect("localhost", "root", "Rfdey123qw!", "server");
 
 
 

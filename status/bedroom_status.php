@@ -7,7 +7,7 @@ session_start();
 //$get_key = $_COOKIE['api'];
 //$get_key = $_GET['api'];
 $get_key = $_SESSION['api'];
-$link=mysqli_connect("localhost", "root", "123", "server");
+$link=mysqli_connect("localhost", "root", "Rfdey123qw!", "server");
 
 $bedroom_db = mysqli_query($link, "SELECT * FROM bedroom WHERE api_key='$get_key'");
 $data = mysqli_fetch_assoc($bedroom_db);

@@ -2,7 +2,7 @@
 
 $api_key = $_GET['api'];
 
-$link=mysqli_connect("localhost", "root", "123", "server");
+$link=mysqli_connect("localhost", "root", "Rfdey123qw!", "server");
 
 $db_connect = mysqli_query($link, "SELECT * FROM users WHERE api_key = '$api_key'");
 $data_db = mysqli_num_rows($db_connect);

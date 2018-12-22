@@ -2,7 +2,7 @@
 session_start();
 if (isset($_POST['login'])) { $login=$_POST['login']; if ($login =='') { unset($login);} }
 if (isset($_POST['password'])) { $password=$_POST['password']; if ($password =='') { unset($password);} }
-$link=mysqli_connect("localhost", "root", "123", "server");
+$link=mysqli_connect("localhost", "root", "Rfdey123qw!", "server");
 
 
 $login = stripslashes($login);
@@ -21,7 +21,7 @@ if (empty($myrow["login"]))
 }
 else {
   if ($myrow["password"]==$password) {
-    $link=mysqli_connect("localhost", "root", "123", "server");
+    $link=mysqli_connect("localhost", "root", "Rfdey123qw!", "server");
 	$api_key = mysqli_query($link,"SELECT api_key FROM users WHERE login='$login'");
 	$key = mysqli_fetch_assoc($api_key);
 	$get = $key['api_key'];

@@ -10,7 +10,7 @@ for ($i=1; $i < 7; $i++) {
 }
 
 
-$link=mysqli_connect("localhost", "root", "123", "server");
+$link=mysqli_connect("localhost", "root", "Rfdey123qw!", "server");
 
 
 
