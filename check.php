@@ -19,7 +19,7 @@ if (empty($login) or empty($password)) //если пользователь не 
     $password = trim($password);
 
      //Подключаемся к базе данных.
-    $dbcon = mysql_connect("localhost", "root", "123");
+    $dbcon = mysql_connect("localhost", "root", "Rfdey123qw!");
     mysql_select_db("server", $dbcon);
     if (!$dbcon)
     {
