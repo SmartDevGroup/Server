@@ -9,10 +9,11 @@ $(function() {
 function send()
 {
     var socket = {};
+    socket.bedroom_light = $("#bedroom_light").val();
     for (var i = 1; i < 7; i++) {
       socket['bedroom_socket_'+i] = $("#bedroom_socket_"+[i]).val();
     }
-    socket.bedroom_light = $("#bedroom_light").val();
+
     socket.dimer = $("#dimer").val();
 
     $.ajax({
@@ -28,13 +29,15 @@ function send_all_on()
 {
     var socket = {};
     for (var i = 1; i < 7; i++) {
-      $("#bedroom_socket_"+[i]).val(1);
-      socket['bedroom_socket_'+i] = $("#bedroom_socket_"+[i]).val();
+      //$("#bedroom_socket_"+[i]).val(1);
       $("#bedroom_socket_"+[i]).bootstrapToggle('on');
+      socket['bedroom_socket_'+i] = $("#bedroom_socket_"+[i]).val();
+
     }
-    $("#bedroom_light").val(1);
-    socket.bedroom_light = $("#bedroom_light").val();
+    //$("#bedroom_light").val(1);
     $('#bedroom_light').bootstrapToggle('on');
+    socket.bedroom_light = $("#bedroom_light").val();
+
 
     $.ajax({
     type: 'POST',
@@ -95,27 +98,24 @@ $(document).ready(function(){
   });
 });
 
-
+/*
 function show()
 {
   $.ajax({
-  url: 'status/bedroom_status.php',
+  url: 'status/bedroom_light.php',
   cache: false,
   success: function(json){
     var data = JSON.parse(json);
-    for (var i = 1; i < 7; i++) {
-      $("#b_temp_"+[i]).text(data['bedroom_socket_'+i]);
-      $("#b_stan_"+[i]).html(data['b_s_'+i]);
-      $("#b_conn_"+[i]).html(data['c_s_'+i]);
-      if(data['s_'+i] == 1){if($("#bedroom_socket_"+[i]).val() == 0){$("#bedroom_socket_"+[i]).bootstrapToggle('on');}}
-      if(data['s_'+i] == 0){if($("#bedroom_socket_"+[i]).val() == 1){$("#bedroom_socket_"+[i]).bootstrapToggle('off');}}
-
-    }
     $('#b_stan_l').html(data.b_l);
+    $('#dimer').val(data.dimer);
+    $('#value_scroll').text(data.dimer);
+    if(data['s_l'] == 1){if($("#bedroom_light").val() == 0){$("#bedroom_light").bootstrapToggle('on');}}
+    if(data['s_l'] == 0){if($("#bedroom_light").val() == 1){$("#bedroom_light").bootstrapToggle('off');}}
+
   }
   });
 }
-/*
+*/
 function pol()
 {
   var xmlhttp = new XMLHttpRequest();
@@ -124,27 +124,19 @@ xmlhttp.onreadystatechange = function() {
       if (this.status === 200) {
         try {
           var data = JSON.parse(this.responseText);
-          $('#b_temp_1').text(data.bedroom_socket_1);
-          $('#b_temp_2').text(data.bedroom_socket_2);
-          $('#b_temp_3').text(data.bedroom_socket_3);
-          $('#b_temp_4').text(data.bedroom_socket_4);
-          $('#b_temp_5').text(data.bedroom_socket_5);
-          $('#b_temp_6').text(data.bedroom_socket_6);
-          $('#b_stan_1').html(data.b_s_1);
-          $('#b_stan_2').html(data.b_s_2);
-          $('#b_stan_3').html(data.b_s_3);
-          $('#b_stan_4').html(data.b_s_4);
-          $('#b_stan_5').html(data.b_s_5);
-          $('#b_stan_6').html(data.b_s_6);
+          for (var i = 1; i < 7; i++) {
+            $("#b_temp_"+[i]).text(data['bedroom_socket_'+i]);
+            $("#b_stan_"+[i]).html(data['b_s_'+i]);
+            $("#b_conn_"+[i]).html(data['c_s_'+i]);
+            if(data['s_'+i] == 1){if($("#bedroom_socket_"+[i]).val() == 0){$("#bedroom_socket_"+[i]).bootstrapToggle('on');}}
+            if(data['s_'+i] == 0){if($("#bedroom_socket_"+[i]).val() == 1){$("#bedroom_socket_"+[i]).bootstrapToggle('off');}}
+          }
           $('#b_stan_l').html(data.b_l);
-
-          $('#b_conn_1').html(data.c_s_1);
-          $('#b_conn_2').html(data.c_s_2);
-          $('#b_conn_3').html(data.c_s_3);
-          $('#b_conn_4').html(data.c_s_4);
-          $('#b_conn_5').html(data.c_s_5);
-          $('#b_conn_6').html(data.c_s_6);
-        } catch{
+          $('#dimer').val(data.dimer);
+          $('#value_scroll').text(data.dimer);
+          if(data['s_l'] == 1){if($("#bedroom_light").val() == 0){$("#bedroom_light").bootstrapToggle('on');}}
+          if(data['s_l'] == 0){if($("#bedroom_light").val() == 1){$("#bedroom_light").bootstrapToggle('off');}}
+          } catch{
           pol();
           return;
         }
@@ -158,7 +150,7 @@ xmlhttp.onreadystatechange = function() {
 xmlhttp.open("GET", 'status/bedroom_status.php', true);
 xmlhttp.send();
 }
-*/
+
 function name()
 {
   $.ajax({
@@ -173,10 +165,22 @@ function name()
   });
 }
 
+function status()
+{
+  $.ajax({
+  url: 'service/user_status.php',
+  cache: false,
+  success: function(){}
+});
+}
+
 $(document).ready(function(){
-    show();
+    //show();
+    pol();
     name();
-    setInterval('show()',1000);
+    setTimeout('status();', 2000);
+    setInterval('status()',20000);
+
 });
 
 var scroll = 0;

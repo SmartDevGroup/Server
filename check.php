@@ -43,14 +43,27 @@ $result = mysql_query("SELECT * FROM users WHERE login='$login'", $dbcon);
     //если существует, то сверяем пароли
     if ($myrow["password"]==$password) {
     //если пароли совпадают, то запускаем пользователю сессию! Можете его поздравить, он вошел!
-    $_SESSION['login']=$myrow["login"];
-    $_SESSION['id']=$myrow["id"];//эти данные очень часто используются, вот их и будет "носить с собой" вошедший пользователь
+    //$_SESSION['login']=$myrow["login"];
+    //$_SESSION['id']=$myrow["id"];//эти данные очень часто используются, вот их и будет "носить с собой" вошедший пользователь
 	//API_KEY
 	$link=mysqli_connect("localhost", "root", "Rfdey123qw!", "server");
-	$api_key = mysqli_query($link,"SELECT api_key FROM users WHERE login='$login'");
+	$api_key = mysqli_query($link,"SELECT * FROM users WHERE login='$login'");
 	$key = mysqli_fetch_assoc($api_key);
 	$get = $key['api_key'];
 	$_SESSION['api'] = $get;
+  if($key['user_1'] == 0)
+  {
+    $_SESSION['user_id'] = 1;
+  }
+  elseif ($key['user_2'] == 0) {
+    $_SESSION['user_id'] = 2;
+  }
+  elseif ($key['user_3'] == 0) {
+    $_SESSION['user_id'] = 3;
+  }
+  else {
+    header("Location: index.php"); exit();
+  }
 	header("Location: panel.php"); exit();
     }
  else {

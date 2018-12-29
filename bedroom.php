@@ -1,7 +1,19 @@
 <?php
 session_start();
 $get_key = $_SESSION['api'];
-//$link=mysqli_connect("localhost", "root", "Rfdey123qw!", "server");
+echo $id = $_SESSION['user_id'];
+$link=mysqli_connect("localhost", "root", "Rfdey123qw!", "server");
+if($id == 1)
+{
+  mysqli_query($link, "UPDATE bedroom SET l_b_1 = l_b_1 + 1 WHERE api_key = '$get_key'");
+}
+elseif ($id == 2) {
+  mysqli_query($link, "UPDATE bedroom SET l_b_2 = l_b_2 + 1 WHERE api_key = '$get_key'");
+}
+elseif ($id == 3) {
+  mysqli_query($link, "UPDATE bedroom SET l_b_3 = l_b_3 + 1 WHERE api_key = '$get_key'");
+}
+
 //mysqli_query($link, "UPDATE bedroom SET l_b = l_b + 1 WHERE api_key = '$get_key'");
 if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
   include 'status/bedroom_sum.php';
@@ -105,7 +117,8 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
                   </div>
                 </nav>
                 <div class="row ">
-                  <div class="col-lg-8 col-md-12 col-sm-12 col-12 text-center ">
+                  <div class="col-lg-1"></div>
+                  <div class="col-lg-10 col-md-12 col-sm-12 col-12 text-center ">
                     <table class="table table-light text-center table-hover">
                         <thead>
                           <tr>
@@ -132,8 +145,9 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
                         </tbody>
                       </table>
                   </div>
-
-                  <div class="col-lg-4 col-md-12 col-sm-12 text-center">
+                  <div class="col-lg-1"></div>
+                  <div class="col-lg-1"></div>
+                  <div class="col-lg-10 col-md-12 col-sm-12 text-center">
                     <div class="card">
                       <div class="card-body ">
                         <form>
@@ -158,7 +172,6 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
                       </div>
                     </div>
                   </div>
-
                   <div class="col-lg-12 col-md-12 col-sm-12 text-center">
                     <div class="collapse" id="chart">
                       <div class="card text-dark bg-light">
@@ -170,14 +183,13 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
                       </div>
                     </div>
                   </div>
+                  <div class="col-lg-1"></div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-
     <script type="text/javascript">
         $(document).ready(function () {
             $('#sidebarCollapse').on('click', function () {

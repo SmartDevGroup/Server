@@ -50,4 +50,27 @@ if($real_time_sec > $maketime)
 
   $insert_temp = mysqli_query($link, "INSERT INTO temp (id, api_key, date, b_sock_1, b_sock_2, b_sock_3, b_sock_4, b_sock_5, b_sock_6) VALUES ($id_bd, $get_key, NOW(), $array[temp_1], $array[temp_2], $array[temp_3], $array[temp_4], $array[temp_5], $array[temp_6])");
 }
+
+$db_long_pool = mysqli_query($link, "SELECT * FROM long_pooling WHERE api_key = '$get_key'");
+$long_pool = mysqli_fetch_assoc($db_long_pool);
+
+//file_put_contents('time.txt', strtotime('-50 sec')." ".strtotime($long_pool['time_1']));
+
+if(strtotime($long_pool['time_1']) < strtotime('-50 sec'))
+{
+  mysqli_query($link, "UPDATE users SET user_1 = 0 WHERE api_key = '$get_key'");
+}
+if (strtotime($long_pool['time_2']) < strtotime('-50 sec')) {
+  mysqli_query($link, "UPDATE users SET user_2 = 0 WHERE api_key = '$get_key'");
+}
+if (strtotime($long_pool['time_3']) < strtotime('-50 sec')) {
+  mysqli_query($link, "UPDATE users SET user_3 = 0 WHERE api_key = '$get_key'");
+}
+
+$db_users = mysqli_query($link, "SELECT * FROM users WHERE api_key = '$get_key'");
+$users = mysqli_fetch_assoc($db_users);
+if($users['user_1'] == 1 || $users['user_2'] == 1 || $users['user_3'] == 1)
+{
+  mysqli_query($link, "UPDATE bedroom SET l_b_1 = l_b_1 + 1, l_b_2 = l_b_2 + 1, l_b_3 = l_b_3 + 1 WHERE api_key = '$get_key'");
+}
 ?>

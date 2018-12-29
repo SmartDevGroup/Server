@@ -1,7 +1,23 @@
 <?php
 session_start();
 $get_key = $_SESSION['api'];
+echo $id = $_SESSION['user_id'];
+$link=mysqli_connect("localhost", "root", "Rfdey123qw!", "server");
+if($id == 1)
+{
+  mysqli_query($link, "UPDATE users SET user_1 = 1 WHERE api_key = '$get_key'");
+  mysqli_query($link, "UPDATE long_pooling SET user_1 = 1, time_1 = NOW() WHERE api_key = '$get_key'");
+}
+elseif ($id == 2) {
+  mysqli_query($link, "UPDATE users SET user_2 = 1 WHERE api_key = '$get_key'");
+  mysqli_query($link, "UPDATE long_pooling SET user_2 = 1, time_2 = NOW() WHERE api_key = '$get_key'");
+}
+elseif ($id == 3) {
+  mysqli_query($link, "UPDATE users SET user_3 = 1 WHERE api_key = '$get_key'");
+  mysqli_query($link, "UPDATE long_pooling SET user_3 = 1, time_3 = NOW() WHERE api_key = '$get_key'");
+}
 //SetCookie("api",$get_key,time()+3600);
+mysqli_query($link, "UPDATE users SET users = $id WHERE api_key = '$get_key'");
 if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
 ?>
 
