@@ -1,5 +1,6 @@
 $(document).ready(function(){
-    setInterval('temp(), stan()',1000);
+    setInterval('temp(), stan()',2000);
+    setInterval('status()',30000);
 });
 
 function temp()
@@ -191,4 +192,13 @@ function send_all_off_living()
     success: function(){
     }
     });
+}
+
+function status()
+{
+  $.ajax({
+  url: 'service/user_status.php',
+  cache: false,
+  success: function(){}
+});
 }

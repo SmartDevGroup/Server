@@ -43,6 +43,7 @@ else {
       <button class="btn btn-lg btn-primary btn-block" name="commit" type="submit">Sign in</button>
       <button class="btn btn-sm btn-primary btn-block" name="commit" type="button" onclick="register()">Register</button>
       <p class="mt-5 mb-3 text-muted">&copy; 2018-2019</p>
+      <h1><p class="mt-5 mb-3 text-danger"><?php if($_GET['ssesion'] == true){echo "To many ssesion for one user.";} ?></p></h1>
     </form>
     <script type="text/javascript">
       function register(){document.location.href = "reg.php";}

@@ -116,6 +116,7 @@ function show()
   });
 }
 */
+
 function pol()
 {
   var xmlhttp = new XMLHttpRequest();
@@ -126,6 +127,10 @@ xmlhttp.onreadystatechange = function() {
           var data = JSON.parse(this.responseText);
           for (var i = 1; i < 7; i++) {
             $("#b_temp_"+[i]).text(data['bedroom_socket_'+i]);
+            if(data['bedroom_socket_'+i] >= 30)
+            {
+              modal(i);
+            }
             $("#b_stan_"+[i]).html(data['b_s_'+i]);
             $("#b_conn_"+[i]).html(data['c_s_'+i]);
             if(data['s_'+i] == 1){if($("#bedroom_socket_"+[i]).val() == 0){$("#bedroom_socket_"+[i]).bootstrapToggle('on');}}
@@ -149,6 +154,29 @@ xmlhttp.onreadystatechange = function() {
 };
 xmlhttp.open("GET", 'status/bedroom_status.php', true);
 xmlhttp.send();
+}
+
+var so = {};
+var sock_id;
+function modal(id)
+{
+  sock_id = id;
+  if(so['s_'+id] != false)
+  {
+    $("#modal_title").text('Socket № ' + id + " is too hot");
+    $("#modal_text").text("The temperature near the socket is high. Turn off the socket power");
+    $("#modal_alert").modal('show');
+  }
+}
+
+function modal_off() {
+  so['s_'+sock_id] = false;
+  $("#bedroom_socket_"+sock_id).bootstrapToggle('off');
+}
+
+function ignore_socket()
+{
+  so['s_'+sock_id] = false;
 }
 
 function name()

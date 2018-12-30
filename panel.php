@@ -1,24 +1,25 @@
 <?php
 session_start();
 $get_key = $_SESSION['api'];
-echo $id = $_SESSION['user_id'];
+$id = $_SESSION['user_id'];
 $link=mysqli_connect("localhost", "root", "Rfdey123qw!", "server");
 if($id == 1)
 {
   mysqli_query($link, "UPDATE users SET user_1 = 1 WHERE api_key = '$get_key'");
-  mysqli_query($link, "UPDATE long_pooling SET user_1 = 1, time_1 = NOW() WHERE api_key = '$get_key'");
+  mysqli_query($link, "UPDATE long_pooling SET time_1 = NOW() WHERE api_key = '$get_key'");
 }
 elseif ($id == 2) {
   mysqli_query($link, "UPDATE users SET user_2 = 1 WHERE api_key = '$get_key'");
-  mysqli_query($link, "UPDATE long_pooling SET user_2 = 1, time_2 = NOW() WHERE api_key = '$get_key'");
+  mysqli_query($link, "UPDATE long_pooling SET time_2 = NOW() WHERE api_key = '$get_key'");
 }
 elseif ($id == 3) {
   mysqli_query($link, "UPDATE users SET user_3 = 1 WHERE api_key = '$get_key'");
-  mysqli_query($link, "UPDATE long_pooling SET user_3 = 1, time_3 = NOW() WHERE api_key = '$get_key'");
+  mysqli_query($link, "UPDATE long_pooling SET time_3 = NOW() WHERE api_key = '$get_key'");
 }
 //SetCookie("api",$get_key,time()+3600);
 mysqli_query($link, "UPDATE users SET users = $id WHERE api_key = '$get_key'");
 if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
+  include 'menu/news.php';
 ?>
 
 <!DOCTYPE html>
@@ -113,12 +114,28 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
                         <h1 class=" "id="date_time"> </h1>
                       </div>
 
-                      <div class="dropdown">
-                        <button class="btn btn-info dropdown-toggle semi" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          News <span class="badge badge-light">4</span>
+                      <div class="dropdown dropleft">
+                        <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          News <span class="badge badge-light"><?php echo $num_rows; ?></span>
                         </button>
+                        <div class="dropdown-menu">
+                          <h6 class="dropdown-header"></h6>
 
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+
+                              <?php
+                              for ($i=1; $i <= $num_rows; $i++) {
+                                $title = $array[$i]["title"];
+                                $link = $array[$i]["link"];
+                                $text = $array[$i]["text"];
+                                $date = $array[$i]["date"];
+                                echo "<div class='card' style='width: 30rem;''>
+                                <div class='card-body'>
+                                <h5 class='card-title'>$title</h5>
+                                <h6 class='card-subtitle mb-2 text-muted'>$date</h6>
+                                <p class='card-text text-dark'>$text</p>
+                                <a class='btn btn-outline-primary' href='$link' role='button'>See more</a>
+                                </div></div>";
+                              } ?>
                         </div>
                       </div>
 

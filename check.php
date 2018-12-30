@@ -62,7 +62,7 @@ $result = mysql_query("SELECT * FROM users WHERE login='$login'", $dbcon);
     $_SESSION['user_id'] = 3;
   }
   else {
-    header("Location: index.php"); exit();
+    header("Location: index.php?ssesion=true&mobile=true"); exit();
   }
 	header("Location: panel.php"); exit();
     }

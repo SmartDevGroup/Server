@@ -1,8 +1,8 @@
 array(24) {
   ["temp_1"]=>
-  int(0)
+  int(25)
   ["conn_1"]=>
-  string(4) "null"
+  int(1)
   ["temp_2"]=>
   int(0)
   ["conn_2"]=>
@@ -48,4 +48,4 @@ array(24) {
   ["conn_12"]=>
   string(4) "null"
 }
- 0
+ 25
