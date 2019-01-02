@@ -10,6 +10,6 @@ for ($i=1; $i <= $num_rows; $i++){
   $array[$i]["title"] = $data['title'];
   $array[$i]["link"] = $data['link'];
   $array[$i]["text"] = $data['text'];
-  $array[$i]["date"] = $today = date("j.n.Y");//$data['date'];
+  $array[$i]["date"] = $data['date'];//$today = date("j.n.Y");//$data['date'];
 }
 ?>

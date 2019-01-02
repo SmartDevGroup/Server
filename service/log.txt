@@ -1,6 +1,6 @@
 array(24) {
   ["temp_1"]=>
-  int(25)
+  int(23)
   ["conn_1"]=>
   int(1)
   ["temp_2"]=>
@@ -48,4 +48,4 @@ array(24) {
   ["conn_12"]=>
   string(4) "null"
 }
- 25
+ 23
