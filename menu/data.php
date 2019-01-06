@@ -90,6 +90,34 @@ for ($i=1; $i < 7; $i++) {
   }
 }
 
+$livingroom_db = mysqli_query($link, "SELECT * FROM livingroom WHERE api_key='$get_key'");
+$data_livingroom = mysqli_fetch_assoc($livingroom_db);
+
+for ($i=1; $i < 7; $i++) {
+  if($data_livingroom["name_sock_$i"] == "")
+  {
+    $livingroom["name_$i"] = "Socket";
+  }
+  else {
+    $livingroom["name_$i"] = "<h4>".$data_livingroom["name_sock_$i"]."</h4>";
+  }
+
+  if($data_livingroom["home_socket_$i"] == 1)
+  {
+    $livingroom["stan_$i"] = "<h4 class='on text-success'>ON</h3>";
+  }
+  else {
+    $livingroom["stan_$i"] = "<h4 class='off text-danger'>OFF</h3>";
+  }
+  if($data_livingroom["con_sock_$i"] == 1)
+  {
+    $livingroom["con_$i"] = "<h4 class='on text-success'>OK</h3>";
+  }
+  else {
+    $livingroom["con_$i"] = "<h4 class='off text-danger'>NO</h3>";
+  }
+}
+
 $arr = array('b_name_1' => $bedroom['name_1'], 'b_name_2' => $bedroom['name_2'], 'b_name_3' => $bedroom['name_3'], 'b_name_4' => $bedroom['name_4'], 'b_name_5' => $bedroom['name_5'], 'b_name_6' => $bedroom['name_6'],
 'b_stan_1' => $bedroom['stan_1'], 'b_stan_2' => $bedroom['stan_2'], 'b_stan_3' => $bedroom['stan_3'], 'b_stan_4' => $bedroom['stan_4'], 'b_stan_5' => $bedroom['stan_5'], 'b_stan_6' => $bedroom['stan_6'],
 'b_con_1' => $bedroom["con_1"], 'b_con_2' => $bedroom["con_2"], 'b_con_3' => $bedroom["con_3"], 'b_con_4' => $bedroom["con_4"], 'b_con_5' => $bedroom["con_5"], 'b_con_6' => $bedroom["con_6"],
@@ -98,7 +126,10 @@ $arr = array('b_name_1' => $bedroom['name_1'], 'b_name_2' => $bedroom['name_2'],
 'k_con_1' => $kitchen["con_1"], 'k_con_2' => $kitchen["con_2"], 'k_con_3' => $kitchen["con_3"], 'k_con_4' => $kitchen["con_4"], 'k_con_5' => $kitchen["con_5"], 'k_con_6' => $kitchen["con_6"],
 'ba_name_1' => $bathroom['name_1'], 'ba_name_2' => $bathroom['name_2'], 'ba_name_3' => $bathroom['name_3'], 'ba_name_4' => $bathroom['name_4'], 'ba_name_5' => $bathroom['name_5'], 'ba_name_6' => $bathroom['name_6'],
 'ba_stan_1' => $bathroom['stan_1'], 'ba_stan_2' => $bathroom['stan_2'], 'ba_stan_3' => $bathroom['stan_3'], 'ba_stan_4' => $bathroom['stan_4'], 'ba_stan_5' => $bathroom['stan_5'], 'ba_stan_6' => $bathroom['stan_6'],
-'ba_con_1' => $bathroom["con_1"], 'ba_con_2' => $bathroom["con_2"], 'ba_con_3' => $bathroom["con_3"], 'ba_con_4' => $bathroom["con_4"], 'ba_con_5' => $bathroom["con_5"], 'ba_con_6' => $bathroom["con_6"]);
+'ba_con_1' => $bathroom["con_1"], 'ba_con_2' => $bathroom["con_2"], 'ba_con_3' => $bathroom["con_3"], 'ba_con_4' => $bathroom["con_4"], 'ba_con_5' => $bathroom["con_5"], 'ba_con_6' => $bathroom["con_6"],
+'l_name_1' => $livingroom['name_1'], 'l_name_2' => $livingroom['name_2'], 'l_name_3' => $livingroom['name_3'], 'l_name_4' => $livingroom['name_4'], 'l_name_5' => $livingroom['name_5'], 'l_name_6' => $livingroom['name_6'],
+'l_stan_1' => $livingroom['stan_1'], 'l_stan_2' => $livingroom['stan_2'], 'l_stan_3' => $livingroom['stan_3'], 'l_stan_4' => $livingroom['stan_4'], 'l_stan_5' => $livingroom['stan_5'], 'l_stan_6' => $livingroom['stan_6'],
+'l_con_1' => $livingroom["con_1"], 'l_con_2' => $livingroom["con_2"], 'l_con_3' => $livingroom["con_3"], 'l_con_4' => $livingroom["con_4"], 'l_con_5' => $livingroom["con_5"], 'l_con_6' => $livingroom["con_6"]);
 $json = json_encode($arr);
 echo $json;
 ?>

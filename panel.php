@@ -320,6 +320,29 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
                             <div class="card card-body">
                               <div class=""><h5>Sockets: </h5><div class="" id="stan_livinroom"></div></div>
                             </div>
+                            <div class="card card-body">
+                              <table class="table">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col"><i class="fas fa-sticky-note"></i> Name Socket</th>
+                                    <th scope="col"><i class="fas fa-wifi"></i> Connection</th>
+                                    <th scope="col"><i class="fas fa-plug"></i> Status</th>
+                                  </tr>
+                                </thead>
+                                <?php
+                                  for ($i=1; $i <= $Sum_bathroom; $i++) {
+                                    echo "<tbody>
+                                    <tr>
+                                     <td>$i</td>
+                                     <td id='l_name_$i'></td>
+                                     <td id='l_con_$i'></td>
+                                     <td id='l_stan_$i'></td>
+                                   </tr>";
+                                  }
+                                ?>
+                              </table>
+                            </div>
                           </div>
                           <div class="col-lg-5">
                             <div class="card card-body">

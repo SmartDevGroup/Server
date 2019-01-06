@@ -52,6 +52,9 @@ function sockets()
       $("#ba_name_"+[i]).html(data['ba_name_'+i]);
       $("#ba_stan_"+[i]).html(data['ba_stan_'+i]);
       $("#ba_con_"+[i]).html(data['ba_con_'+i]);
+      $("#l_name_"+[i]).html(data['l_name_'+i]);
+      $("#l_stan_"+[i]).html(data['l_stan_'+i]);
+      $("#l_con_"+[i]).html(data['l_con_'+i]);
     }
   }
   });
