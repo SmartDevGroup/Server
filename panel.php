@@ -20,6 +20,7 @@ elseif ($id == 3) {
 mysqli_query($link, "UPDATE users SET users = $id WHERE api_key = '$get_key'");
 if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
   include 'menu/news.php';
+  include 'menu/sum.php';
 ?>
 
 <!DOCTYPE html>
@@ -111,7 +112,7 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
                       </button>
 
                       <div class="col text-center">
-                        <h1 class=" "id="date_time"> </h1>
+                        <h1 class=" "id="date_time"></h1>
                       </div>
 
                       <div class="dropdown dropleft">
@@ -120,8 +121,6 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
                         </button>
                         <div class="dropdown-menu">
                           <h6 class="dropdown-header"></h6>
-
-
                               <?php
                               for ($i=1; $i <= $num_rows; $i++) {
                                 $title = $array[$i]["title"];
@@ -138,10 +137,221 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
                               } ?>
                         </div>
                       </div>
-
                   </div>
                 </nav>
                 <div class="row">
+                  <div class="col-lg-1"></div>
+
+                  <div class="col-lg-10">
+                    <div id="carouselExampleControls" class="carousel slide carousel-fade" data-ride="carousel" data-interval="false">
+                    <div class="carousel-inner">
+                      <div class="carousel-item" id="1">
+                        <div class="row">
+                          <div class="col-lg-5">
+                            <div class="card card-body">
+                              <div class="d-flex flex-row text-center mx-auto">
+                                <div class="p-1"><h4>Average Temperature in Bedroom:</h4> </div>
+                                <div class="p-1"><h5 class="text-primary"id="bedroom_temp"></h5></div>
+                                <div class="p-1"><h5>C<sup>o</sup></h5></div>
+                              </div>
+                            </div>
+                            <div class="card card-body">
+                              <div class=""><h5>Sockets: </h5><div class="" id="stan_bedroom"></div></div>
+                            </div>
+                            <div class="card card-body">
+                              <table class="table">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col"><i class="fas fa-sticky-note"></i> Name Socket</th>
+                                    <th scope="col"><i class="fas fa-wifi"></i> Connection</th>
+                                    <th scope="col"><i class="fas fa-plug"></i> Status</th>
+                                  </tr>
+                                </thead>
+                                <?php
+                                  for ($i=1; $i <= $Sum_bedroom; $i++) {
+                                    echo "<tbody>
+                                    <tr>
+                                     <td>$i</td>
+                                     <td id='b_name_$i'></td>
+                                     <td id='b_con_$i'></td>
+                                     <td id='b_stan_$i'></td>
+                                   </tr>";
+                                  }
+                                ?>
+                              </table>
+                            </div>
+                          </div>
+                          <div class="col-lg-5">
+                            <div class="card card-body">
+                              <h5 class="card-title text-center"><i class="fas fa-power-off"></i></h5>
+                              <form>
+                                <button type="button" class="btn btn-outline-success " onclick="send_all_on_bedroom()" style="width: 65%;">All On</button>
+                                <button type="button" class="btn btn-outline-danger " onclick="send_all_off_bedroom()" style="width: 65%;">All Off</button>
+                              </form>
+                            </div>
+                            <div class="card card-body text center">
+                              <h5 class="card-title text-center"><i class="fas fa-bed"></i></h5>
+                              <form>
+                                <button type="button" class="btn btn-outline-primary" onclick="location.href = 'bedroom.php';"  style="width: 50%;">Go to Bedroom</button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item" id="2">
+                        <div class="row">
+                          <div class="col-lg-5">
+                            <div class="card card-body">
+                              <div class="d-flex flex-row text-center mx-auto">
+                                <div class="p-1"><h4>Average Temperature in Kitchen:</h4> </div>
+                                <div class="p-1"><h5 class="text-primary"id="kitchen_temp"></h5></div>
+                                <div class="p-1"><h5>C<sup>o</sup></h5></div>
+                              </div>
+                            </div>
+                            <div class="card card-body">
+                              <div class=""><h5>Sockets: </h5><div class="" id="stan_kitchen"></div></div>
+                            </div>
+                            <div class="card card-body">
+                              <table class="table">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col"><i class="fas fa-sticky-note"></i> Name Socket</th>
+                                    <th scope="col"><i class="fas fa-wifi"></i> Connection</th>
+                                    <th scope="col"><i class="fas fa-plug"></i> Status</th>
+                                  </tr>
+                                </thead>
+                                <?php
+                                  for ($i=1; $i <= $Sum_kitchen; $i++) {
+                                    echo "<tbody>
+                                    <tr>
+                                     <td>$i</td>
+                                     <td id='k_name_$i'></td>
+                                     <td id='k_con_$i'></td>
+                                     <td id='k_stan_$i'></td>
+                                   </tr>";
+                                  }
+                                ?>
+                              </table>
+                            </div>
+                          </div>
+                          <div class="col-lg-5">
+                            <div class="card card-body">
+                              <h5 class="card-title text-center"><i class="fas fa-power-off"></i></h5>
+                              <form>
+                                <button type="button" class="btn btn-outline-success " onclick="send_all_on_kitchen()" style="width: 65%;">All On</button>
+                                <button type="button" class="btn btn-outline-danger " onclick="send_all_off_kitchen()" style="width: 65%;">All Off</button>
+                              </form>
+                            </div>
+                            <div class="card card-body text center">
+                              <h5 class="card-title text-center"><i class="fas fa-utensils"></i></h5>
+                              <form>
+                                <button type="button" class="btn btn-outline-primary" onclick="location.href = 'kitchen.php';" style="width: 50%;">Go to Kitchen</button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item" id="3">
+                        <div class="row">
+                          <div class="col-lg-5">
+                            <div class="card card-body">
+                              <div class="d-flex flex-row text-center mx-auto">
+                                <div class="p-1"><h4>Average Temperature in Bathroom:</h4> </div>
+                                <div class="p-1"><h5 class="text-primary"id="bathroom_temp"></h5></div>
+                                <div class="p-1"><h5>C<sup>o</sup></h5></div>
+                              </div>
+                            </div>
+                            <div class="card card-body">
+                              <div class=""><h5>Sockets: </h5><div class="" id="stan_bathroom"></div></div>
+                            </div>
+                            <div class="card card-body">
+                              <table class="table">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col"><i class="fas fa-sticky-note"></i> Name Socket</th>
+                                    <th scope="col"><i class="fas fa-wifi"></i> Connection</th>
+                                    <th scope="col"><i class="fas fa-plug"></i> Status</th>
+                                  </tr>
+                                </thead>
+                                <?php
+                                  for ($i=1; $i <= $Sum_bathroom; $i++) {
+                                    echo "<tbody>
+                                    <tr>
+                                     <td>$i</td>
+                                     <td id='ba_name_$i'></td>
+                                     <td id='ba_con_$i'></td>
+                                     <td id='ba_stan_$i'></td>
+                                   </tr>";
+                                  }
+                                ?>
+                              </table>
+                            </div>
+                          </div>
+                          <div class="col-lg-5">
+                            <div class="card card-body">
+                              <h5 class="card-title text-center"><i class="fas fa-power-off"></i></h5>
+                              <form>
+                                <button type="button" class="btn btn-outline-success " onclick="send_all_on_bathroom()" style="width: 65%;">All On</button>
+                                <button type="button" class="btn btn-outline-danger " onclick="send_all_off_bathroom()" style="width: 65%;">All Off</button>
+                              </form>
+                            </div>
+                            <div class="card card-body text center">
+                              <h5 class="card-title text-center"><i class="fas fa-shower"></i></i></h5>
+                              <form>
+                                <button type="button" class="btn btn-outline-primary" onclick="location.href = 'bathroom.php';" style="width: 50%;">Go to Bathroom</button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item" id="4">
+                        <div class="row">
+                          <div class="col-lg-5">
+                            <div class="card card-body">
+                              <div class="d-flex flex-row text-center mx-auto">
+                                <div class="p-1"><h5>Average Temperature in Living room:</h5> </div>
+                                <div class="p-1"><h5 class="text-primary"id="livingroom_temp"></h5></div>
+                                <div class="p-1"><h5>C<sup>o</sup></h5></div>
+                              </div>
+                            </div>
+                            <div class="card card-body">
+                              <div class=""><h5>Sockets: </h5><div class="" id="stan_livinroom"></div></div>
+                            </div>
+                          </div>
+                          <div class="col-lg-5">
+                            <div class="card card-body">
+                              <h5 class="card-title text-center"><i class="fas fa-power-off"></i></h5>
+                              <form>
+                                <button type="button" class="btn btn-outline-success " onclick="send_all_on_living()" style="width: 65%;">All On</button>
+                                <button type="button" class="btn btn-outline-danger " onclick="send_all_off_living()" style="width: 65%;">All Off</button>
+                              </form>
+                            </div>
+                            <div class="card card-body text center">
+                              <h5 class="card-title text-center"><i class="fas fa-door-open"></i></i></h5>
+                              <form>
+                                <button type="button" class="btn btn-outline-primary" onclick="location.href = 'hall.php';" style="width: 50%;">Go to Living room</button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-1"></div>
+                  <div class="col-lg-12">
+                    <br>
+                    <div class="btn-group btn-group-lg text-center">
+                      <button type="button" class="btn btn-primary" onclick="caro_bed()" style="width: 100%;"><i class="fas fa-bed"></i> Bedroom</button>
+                      <button type="button" class="btn btn-primary " onclick="caro_kit()" style="width: 100%;"><i class="fas fa-utensils"></i>  Kitchen</button>
+                      <button type="button" class="btn btn-primary " onclick="caro_ba()" style="width: 100%;"><i class="fas fa-shower"></i> Bathroom</button>
+                      <button type="button" class="btn btn-primary " onclick="caro_liv()" style="width: 100%;"><i class="fas fa-door-open"></i> Living room</button>
+                    </div>
+                    <br>
+                  </div>
+                  <!--This is a comment. Comments are not displayed in the browser
                   <div class="col-lg-6 col-md-12 col-sm-12 col-12">
                     <br>
                     <button class="btn btn-primary btn-lg btn-block" type="button" data-toggle="collapse" data-target="#bedroom" aria-expanded="false" aria-controls="collapseExample">
@@ -227,6 +437,7 @@ if($get_key == ""){header("Location: http://smartdevgroup.hopto.org/");}
                       </div>
                     </div>
                   </div>
+                  -->
                 </div>
               </div>
 
