@@ -209,7 +209,7 @@ e.dataSeries.visible = true;
 chart.render();
 }
 
-var updateInterval = 4000;
+var updateInterval = 10000;
 // initial value
 
 date = new Date;

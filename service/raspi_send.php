@@ -12,11 +12,46 @@ for ($i=1; $i < 13; $i++) {
     $array["temp_$i"] = 25;
   }
 }
+//LOG SAVE
+$log = "../log/";
+if (!is_dir($log))
+{
+  mkdir($log);
+}
+else {
+  ob_start();
+  $name = date("G-i-s j-n-Y");
+  $user_dir = "../log/$get_key/";
+  if (!is_dir($user_dir)){
+    mkdir($user_dir);
+  }
+  $dir_save = $user_dir."raspberry/";
+  $count = count(scandir($dir_save));
+  $file = $count."_".$name.".txt";
+  if (!is_dir($dir_save))
+  {
+    mkdir($dir_save);
+    var_dump($array);
+    $output = ob_get_clean();
+    file_put_contents($dir_save.$file, $output);
+  }
+  else {
+    var_dump($array);
+    $output = ob_get_clean();
+    file_put_contents($dir_save.$file, $output);
+  }
 
-ob_start();
-var_dump($array);
-$output = ob_get_clean();
-file_put_contents('log.txt', $output." ".$array['temp_1']);
+  if($count > 20)
+  {
+    foreach (new DirectoryIterator($dir_save) as $fileInfo) {
+      if(!$fileInfo->isDot()) {
+          unlink($fileInfo->getPathname());
+      }
+    }
+    exit;
+  }
+}
+//!LOG SAVE
 
 $update_bedroom = mysqli_query($link, "UPDATE bedroom SET b_temp_sock_1 = $array[temp_1], b_temp_sock_2 = $array[temp_2], b_temp_sock_3 = $array[temp_3], b_temp_sock_4 = $array[temp_4], b_temp_sock_5 = $array[temp_5], b_temp_sock_6 = $array[temp_6], con_sock_1 = $array[conn_1],
   con_sock_2 = $array[conn_2],con_sock_3 = $array[conn_3], con_sock_4 = $array[conn_4], con_sock_5 = $array[conn_5], con_sock_6 = $array[conn_6], date= NOW() WHERE api_key='$get_key'");
@@ -37,7 +72,7 @@ $arr_date = explode("-", $str_date);
 $str_time = $time_bd;
 $arr_time = explode(":", $str_time);
 
-$maketime = mktime ($arr_time[0], $arr_time[1] + 1,  $arr_time[2], $arr_date[1], $arr_date[2], $arr_date[0]);
+$maketime = mktime ($arr_time[0], $arr_time[1] + 10,  $arr_time[2], $arr_date[1], $arr_date[2], $arr_date[0]);
 
 $real_date = date("Y-n-j G:i:s");
 $real_time_sec = strtotime($real_date);
