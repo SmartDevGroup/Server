@@ -61,5 +61,5 @@ else {
 //!LOG SAVE
 
 $link=mysqli_connect("localhost", "root", "Rfdey123qw!", "server");
-$update_bedroom = mysqli_query($link, "UPDATE bedroom SET bedroom_socket_1 = $bedroom[socket_1], date= NOW() WHERE api_key='$get_key'");
+$update_bedroom = mysqli_query($link, "UPDATE bedroom SET bedroom_socket_1 = $bedroom[socket_1], output_b = output_b + 1, date= NOW() WHERE api_key='$get_key'");
 ?>
