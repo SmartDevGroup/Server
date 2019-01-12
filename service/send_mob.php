@@ -6,6 +6,19 @@ for ($i=1; $i < 9; $i++) {
     $array["value_$i"] = $data["$i"]["value"];
     $array["room_$i"] = $data["$i"]["room"];
 }
+
+for ($i=1; $i < 9; $i++) {
+  if($array["room_$i"] == "bedroom")
+  {
+    if($array["value_$i"] == "Enable")
+    {
+      $bedroom["socket_$i"] = 1;
+    }
+    else {
+      $bedroom["socket_$i"] = 0;
+    }
+  }
+}
 //LOG SAVE
 $log = "../log/";
 if (!is_dir($log))
@@ -21,7 +34,7 @@ else {
   }
   $dir_save = $user_dir."mob/";
   $count = count(scandir($dir_save));
-  $file = $count."_".$name.".txt";
+  $file = "(".$count.") ".$name.".txt";
   if (!is_dir($dir_save))
   {
     mkdir($dir_save);
@@ -47,4 +60,6 @@ else {
 }
 //!LOG SAVE
 
+$link=mysqli_connect("localhost", "root", "Rfdey123qw!", "server");
+$update_bedroom = mysqli_query($link, "UPDATE bedroom SET bedroom_socket_1 = $bedroom[socket_1], date= NOW() WHERE api_key='$get_key'");
 ?>
